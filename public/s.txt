@@ -1,0 +1,2065 @@
+/*
+
+@Krok0
+------------------------------------------------------------------------------
+KROK 0 !!!zanim zaczniesz się móżdżyć nad zadaniem
+
+Dodaj MASM
+Build Dependencies / Build Customizations / MASM
+
+Ustaw kompilacje plików.asm
+Properties
+Excluded From Build / NO
+Item Type / Microsoft Macro Assembler
+
+@Typy @Rozmiary @Wielkości
+------------------------------------------------------------------------------ -
+wskaźnik 8 bajtów - 64 bity - qword ptr[...]
+
+char - 2 bajty - 16 bitów - word ptr[...]
+int - 4 bajty - 32 bity - dword ptr[...]
+float - 4 bajty - 32 bity - dword ptr[...]
+double - 8 bajtów - 64 bity - qword ptr[...]
+INT64 - 8 bajtów - 64 bity - qword ptr[...]
+
+@Argumenty @Parametry
+------------------------------------------------------------------------------ -
+ARGUMENTY FUNKCJI CPU :
+CX < -
+    DX < -
+    R8 < -
+    R9 < -
+    stos < -
+    AX  ->
+
+    REJ.OGÓLNEGO PRZEZNACZENIA :
+RAX, RCX, RDX, RBX, RSP, RBP, RSI, RDI oraz R8, R9, R10, R11, R12, R13, R14, R15
+EAX, ... oraz R8D, R9D, R10D, R11D, R12D, R13D, R14D, R15D
+AX, ... oraz R8W, R9W, R10W, R11W, R12W, R13W, R14W, R15W
+AL, ... oraz R8B, R9B, R10B, R11B, R12B, R13B, R14B, R15B
+
+ZABEZPIECZAMY(PROC USES ...) : RBX, RBP, ESI, EDI, RSP, R12, R13, R14, R15.
+------------------------------------------------------------------------------ -
+ARGUMENTY FUNKCJI FPU :
+xmm0 < -
+    xmm1 < -
+    xmm2 < -
+    xmm3 < -
+    stos < -
+    xmm0  ->
+    ZABEZPIECZAMY(PROC USES ...) : xmm6 - xmm15
+------------------------------------------------------------------------------ -
+PRZEKAZYWANIE ARGUMENTÓW DO FUNKCJI - KOLEJNOŚĆ
+argument nr : 			1 		2		3		4		5..		zwracanie
+całkowity / wskaźnik : 	RCX, 	RDX, 	R8, 	R9 		stos	RAX
+float / double : 		XMM0, 	XMM1, 	XMM2, 	XMM3	stos 	XMM0
+
+przykład : double f1(double, int, float, int64*)
+		   XMM0 	 XMM0    EDX  XMM2   R9
+------------------------------------------------------------------------------ -
+@Rozszerzanie
+------------------------------------------------------------------------------ -
+ROZSZERZANIE REJESTRÓW
+rozszerzenie ze znakiem z 8 / 16 bit na 64 bit - MOVSX
+rozszerzenie ze znakiem z 32 bit do 64 bit - MOVSXD
+rozszerzenie bez znaku z 8 / 16 / 32 bit do 64 bit - MOVZX
+------------------------------------------------------------------------------ -
+@Min @Max @CPU @Dwa
+------------------------------------------------------------------------------ -
+MIN(a, b)   (jezeli szukamy max to zamieniamy jl na jg)
+
+	mov eax, ecx
+	mov ebx, edx
+	cmp eax, ebx; porównj a i b
+	jl _skib; jeżeli  a < b  skacz do _skip
+	mov eax, ebx; jeżeli nie   a < -b
+	_skib :
+	mov eax, eax; ; a = min
+	ret
+------------------------------------------------------------------------------ -
+@Min @Max @CPU @Wiele
+------------------------------------------------------------------------------ -
+MIN(a, b, c, d)   (jezeli szukamy max to zamieniamy cmovg na cmovl)
+
+	mov eax, ecx; zakladamy ze a = min
+
+	cmp rax, rdx; min > b
+	cmovg rax, rdx
+
+	cmp rax, r8; min > c
+	cmovg rax, r8
+
+	cmp rax, r9; min > d
+	cmovg rax, r9
+
+	ret
+------------------------------------------------------------------------------ -
+@Nieparzysta @Parzysta @Warunek @Przedzial @CPU @Wektor
+------------------------------------------------------------------------------ -
+LICZENIE LICZBY WARTOŚCI SPEŁNIAJACEJ JAKIŚ WARUNEK NP PARZYSTA
+LUB :
+*NIEPARZYSTA zamieniamy jnz  na jz
+* PODZIELNA PRZEZ... zamieniamy w r15d na liczbę przez którą ma być podzielna
+
+xor r11d, r11d
+_loop :
+mov r8d, dword ptr[rcx + 4 * r10 - 4]; R8 kolejny element np wektora
+
+mov eax, r8d
+cdq
+idiv r15d; do r15d dać 2
+
+cmp rdx, 0
+jnz _skipparzysta; skocz jeśli reszta != 0
+
+inc r11d; licznik parzystych
+
+_skipparzysta :
+
+dec r10; licznik petli
+jnz _loop
+
+mov eax, r11d
+
+Z PRZEDZIAŁU np(5, 15] :
+------------------------ -
+mov r8d, dword ptr[rcx + 4 * rdx - 4]; r8 < -kolejny element
+
+    ; dla element > 5
+    cmp r8, 5
+    setg r10b; jeżeli prawda ustawiamy 1 w r10b
+
+    ; dla element <= 15
+    cmp r8, 15
+    setle r11b; jeżeli prawda ustawiamy 1 w r11b
+
+    ; dla element > 5 i element <= 15 (łaczymy warunki)
+
+    and r10b, r11b; sprawdzenie warunku
+
+    jz _skip
+    inc rax; licznik elementów przedziału
+
+    _skip
+    dec rdx; licznik petli
+    jnz _loop
+
+    ------------------------------------------------------------------------------ -
+@Switch @CPU 
+    FUNKCJA SWITCH
+
+    ECX < -
+    EDX < -
+    R8D < -ZMIENNA DLA WARUNKU
+    EAX  ->
+    mov ecx, R8D
+    cmp ecx, 1
+    je _case1
+    cmp ecx, 2
+    je _case2
+    cmp ecx, 3
+    je _case3
+    jmp _default
+    _case1 :
+; OBLICZENIA
+; ZOSTAWIĆ WYNIK W EAX
+jmp _end
+_case2 :
+; OBLICZENIA
+; ZOSTAWIĆ WYNIK W EAX
+jmp _end
+_case3 :
+; OBLICZENIA
+; ZOSTAWIĆ WYNIK W EAX
+jmp _end
+_default :
+; OBLICZENIA
+; ZOSTAWIĆ WYNIK W EAX
+jmp _end
+_end :
+ret
+------------------------------------------------------------------------------ -
+@Wektor @Suma @Iloczyn @Petla @Min @Max @CPU
+------------------------------------------------------------------------------ -
+DZIAŁANIA NA 2 WEKTORACH  NP.SUMA, ILOCZYN LUB JAKAŚ FUNKCJA(TREŚĆ ZADANIA)
+
+; RCX < -wskaźnik wektora a
+    ; RDX < -wskaźnik wektora b
+    ; R8 < -size wektorów
+
+    asm2wektory PROC
+_loop :
+	mov eax, dword[rdx + 4 * r8 - 4]
+
+	add dword[rdx + 4 * r8 - 4], eax; może to być imul lub inne obliczenie
+	; zależy od terści zadania
+	dec r8
+	jnz _loop
+;END _loop
+ret
+------------------------------------------------------------------------------ -
+@Macierz @Sum @Iloczyn 
+------------------------------------------------------------------------------ -
+OPERACJE NA MACIERZY NP SUMA ELEMENTÓW, ILOCZYN, AVG, MIN, MAX LUB JAKAS FUNKCJA
+
+; RCX < -wskaźnik na macierz
+    ; RDX < -liczba wierszy
+    ; R8 < -liczba kolumn
+
+    xor rax, rax; wynik = 0
+
+    petlaWiersz:
+mov rsi, qword ptr[rcx + 8 * rdx - 8]; RSI < -A[i] wskaźnik do wiersza
+    mov r10, r8; reset licznika kolumn(r10 < -J)
+
+    petlaKolumna:
+movsxd r11, dword ptr[rsi + 4 * r10 - 4]; R11 < -A[i][j]
+
+    add rax, r11; może to być imul lub inne obliczenie
+    ; zależy od terści zadania
+
+    dec r10
+    jnz petlaKolumna
+    dec rdx
+    jnz petlaWiersz
+    ret
+    ------------------------------------------------------------------------------ -
+    OPERACJA MACIERZ / WEKTOR ILOCZYN
+
+    ; RCX < -wskaźnik na macierz
+    ; RDX < -wskażnik na wektor źródłowy
+    ; R8 < -wskażnik na wektor wynikowy
+    ; r9 < -liczba wierszy macierzy = dlugosc wektora wynikowego
+    ; stos < -liczba kolumn macierzy = dlugosc wektora żródłowego
+
+    mov r11, n; r11 < -stos
+    xor r10, r10; suma = 0
+
+    petlaWiersze:
+mov rsi, qword ptr[rcx + 8 * r9 - 8]; RSI < -A[i] wskaźnik na wiersz
+    mov rbx, r11; reset licznika kolumn(rbx < -J)
+
+
+    petlaKolumny:
+mov rax, [rsi + 8 * rbx - 8]; rax = m[m][n]
+imul rax, [rdx + 8 * rbx - 8]; rax *= v[n]
+add r10, rax
+dec rbx
+jnz petlaKolumny
+mov[r8 + r9 * 8 - 8], r10
+
+dec r9
+jnz petlaWiersze
+ret
+------------------------------------------------------------------------------ -
+@Macierz @Iloczyn @Suma @CPU
+------------------------------------------------------------------------------ -
+OPERACJA MACIERZ / MACIERZ ILOCZYN C = A * B
+
+; RCX < -wskaźnik na macierz C
+    ; RDX < -wskażnik na macierz A
+    ; R8 < -wskażnik na macierz B
+    ; r9 < -liczba wierszy macierzy A
+    ; stos < -liczba kolumn A i wierszy B
+    ; stos < -liczba kolumn macierzy B
+
+    WierszeA :
+mov rsi, [rdx + 8 * r9 - 8]; wskaźnik na macierz A w rsi
+mov rdi, [rcx + 8 * r9 - 8]; wskaźnik na macierz C w rdi
+mov r12, r11; resetowanie licznika kolumn B
+
+KolumnyB :
+mov rax, 0;
+mov r13, r10; resetowanie licznika kolumn C
+
+Wspolna :
+mov rbx, [r8 + 8 * r13 - 8]
+mov ebx, [rbx + 4 * r12 - 4]
+imul ebx, [rsi + 4 * r13 - 4]
+add eax, ebx
+
+dec r13
+jnz Wspolna
+mov dword ptr[rdi + 4 * r12 - 4], rax
+
+dec r12; k
+jnz KolumnyB
+dec r9; w
+jnz WierszeA
+ret
+------------------------------------------------------------------------------ -
+@Macierz @Przekatna @CPU
+------------------------------------------------------------------------------ -
+OPERACJE NA PRZEKĄTNYCH MACIERZY - SUMA, ILOCZYN, ZEROWANIE itd.
+* poniżej przekątnej - indeks i > j
+* powyżej przekątnej - indeks i < j
+
+    ; RCX < -wskaźnik na macierz A
+    ; RDX < -liczba wierszy macierzy A
+    ; R8 < -liczba kolumn macierzy A
+    local _2
+    movsxd rdx, edx
+    movsxd r8, r8d
+
+    ; r13 - wskaźnik na wiersz
+    ; r14d - wartosć A[i][j]
+
+    ; wyznaczenie minimum z liczby wierszy i liczby kolumn
+    mov rax, rdx; zakładamy że liczba wierszy jest min
+    cmp rdx, r8; porównaj liczbę wierszy i liczbę kolumn
+    cmovg rax, r8; rax <-r8 jeśli rdx > r8
+    ; minimum(limit) jest w rax
+
+    petlaWiersze :
+mov rsi, qword ptr[rcx + 8 * r10 - 8]; wskaźnik na wiersz
+
+mov r9, rax; resetowanie licznika kolumn
+petlaKolumny :
+mov r12, qword ptr[rsi + 8 * r9 - 8]; element macierzy
+
+; sprawdzenie indeksu
+; jeśli poniżej przekątnej to jne zamieniamy na jnl !(i > j) = > i <= j
+; jeśli powyżej przekątniej to jne zamieniamy na jng !(i < j) = > i >= j
+cmp rax, r9; porównaj indeks i oraz indeks j
+jne _pomin; pomiń obliczenia
+
+; obliczenia na elemencie macierzy np.dodawanie dzielenie itd.
+; zapisywanie
+
+_pomin :
+
+
+dec rax
+jnz petlaKolumny
+; END petlaKolumny
+
+dec rax
+jnz petlaWiersze
+; END petlaWiersze
+ret
+------------------------------------------------------------------------------ -
+@FPU @Zasady
+------------------------------------------------------------------------------ -
+FPU - WŁAŚCIWOŚCI i ZASADY
+Instrukcje fyl2x, fsin itd.działają na wierzchołku stosu
+fyl2x - y jest w st(1), x w st(0)
+a ^ (-n) == 1 / (a ^ n)
+pi / 180 - PRZELICZNIK ze STOPNIE na RADIANY np.sin(x * (pi / 180))
+sin ^ 3(x)-to samo co[sin(x)] ^ 3
+sin(x) ^ 3 - to samo co sin(x ^ 3)
+
+log_a_(b) = log_2_(b) / log_2_(a) (b na górze, a na dole)
+
+tg(x) = sin(x) / cos(x) lub FPTAN(wrzuca 1.0 na wierzchołek stosu dodatkowo!!!)
+ctg(x) = cos(x) / sin(x)
+
+STOS ZOSTAWIAMY PUSTY - FSTP st 	do zdjęcia ze stosu bez zapisywania nigdzie
+------------------------------------------------------------------------------ -
+@Logarytm @Stala @FPU
+------------------------------------------------------------------------------ -
+FPU - INSTRUKCJE STAŁYCH(ładuje na wierzchołek stosu stałą)
+FLD1 - 1.0
+FLDZ - 0.0
+FLDPI - Pi
+FLDL2E - Log_2(e)
+FLDLN2 - Log_e(2)
+FLDL2T - Log_2(10)
+FLDLG2 - Log_10(2)
+------------------------------------------------------------------------------ -
+@Obliczanie @FPU
+FPU - OBLICZANIE WYRAŻENIA
+OGÓLNA ZASADA OBLICZANIA WYRAŻEŃ :
+; fpu
+; ia ^ 4 * ln2 + jb ^ 3 * log2
+; ------------------------
+; kc ^ 2 * log2(e) - log2(10)
+
+- Najpierw liczymy górną część ułamka, potem dolną(rozbijamy liczenie na podkroki)
+- najpierw liczymy : ia ^ 4 * ln2 + jb ^ 3 * log2
+- potem : kc ^ 2 * log2(e) - log2(10)
+
+- Liczymy najpierw wyrażenia z mnożeniem, od lewej do prawej
+- z górnej części liczymy : ia ^ 4 * ln2, jb ^ 3 * log2.Po czym dodajemy je do siebie
+- z dolnej : kc ^ 2 * log2(e), log2(10).Odejmujemy
+- Dodajemy / odejmujemy je do siebie na koniec
+- górna : ia ^ 4 * ln2 + jb ^ 3 * log2(fadd)
+^ ^^
+-dolna : kc ^ 2 * log2(e) - log2(10) (fsub)
+^ ^^
+-Obliczamy(dzielimy) górną część ułamka i dolną
+fdiv
+- Zwracamy wartość przez rejestr XMM0
+fstp y; do pamięci
+movss xmm0, y; z pamięci do xmm0, movsd dla double
+
+; xmm0 < -float a
+    ; xmm1 < -float b
+    ; xmm0->y
+    asm04_ff PROC a : dword, b : dword
+    local y : dword
+
+    movss a, xmm0
+    movss b, xmm1
+
+    ; działania na a
+    fld a; a
+    fmul st, st; a ^ 2
+    fld1; 1.0, a ^ 2
+    fdivr; 1.0 / a ^ 2->a ^ (-2)
+
+    ; działania na b
+    fld b; b, a ^ (-2)
+    fabs; | b | , a ^ (-2)
+    fld st; | b | , | b | , a ^ (-2)
+    fmul st, st(1); | b | ^ 2, | b | , a ^ (-2)
+    fmul; | b | ^ 3, a ^ (-2)
+    fld1; 1.0, | b | ^ 3, a ^ (-2)
+    fdivr; 1.0/|b | ^ 3, a ^ (-2)
+    ; | b | ^ (-3), a ^ (-2)
+    fsqrt; sqrt(| b | ^ (-3)), a ^ (-2)
+
+    ; 1.0
+    fld1; 1.0, sqrt(| b | ^ (-3)), a ^ (-2)
+
+    ; suma
+    fadd; 1.0 + sqrt(| b | ^ (-3)), a ^ (-2)
+    fadd; 1.0 + sqrt(| b | ^ (-3)) + a ^ (-2)
+
+    ; ^ 2
+    fmul st, st; st(0) ^ 2
+
+    ; ret
+    fstp y; pusty stos
+
+    movss xmm0, y
+
+    ret
+    asm04_ff ENDP
+
+    ; KĄTY ZADANIE
+    ; xmm0 < -float a
+    ; xmm1 < -float b
+    ; xmm0->float
+    asm05_ff PROC a : dword, b : dword
+    local y : dword, _180 : dword, _2 : dword, _4 : dword
+    movss a, xmm0
+    movss b, xmm1
+    mov _180, 180
+    mov _2, 2
+    mov _4, 4
+
+    ; FPU
+    ; 4sin ^ 3(api / 180) - 2cos(bpi / 180) ^ 2
+    ; 4sin ^ 3(api / 180)
+    fldpi; pi
+    fld a; a, pi
+    fmul; api
+    fld _180; 180, api
+    fdiv; api / 180
+    fld st; api / 180, api / 180
+    fmul st, st(1); (api / 180) ^ 2, api / 180
+    fmul; (api / 180) ^ 3
+    fsin; sin ^ 3(api / 180)
+    fimul _4; 4sin ^ 3(api / 180)
+
+
+    ; 2cos(bpi / 180) ^ 2
+    fldpi; pi, 4sin ^ 3(api / 180)
+    fld b; pi, b, 4sin ^ 3(api / 180)
+    fmul; api, 4sin ^ 3(api / 180)
+    fld _180; 180, api, 4sin ^ 3(api / 180)
+    fdiv; api / 180, 4sin ^ 3(api / 180)
+    fcos; cos(api / 180), 4sin ^ 3(api / 180)
+    fld st; cos(api / 180), cos(api / 180), 4sin ^ 3(api / 180)
+    fmul; cos(api / 180) ^ 2, 4sin ^ 3(api / 180)
+    fimul _2; 2cos(api / 180) ^ 2, 4sin ^ 3(api / 180)
+    fsub; 4sin ^ 3(api / 180) - 2cos(a * pi / 180) ^ 2
+    fstp y; pusty stos
+    movss xmm0, y
+    ret
+    asm05_ff ENDP
+
+@FPU @Suma 
+    ------------------------------------------------------------------------------ -
+    FPU - SUMA KWADRATÓW(JEDNA LICZBA ZWRACANIE) WEKTORA - MOŻE BYĆ MNOŻENIE ITD.
+    ; rcx < -wskaźnik na wektor x
+    ; edx < -liczba elementów
+    ; xmm0->y(suma)
+    asm07_ff PROC x : dword, n : sword
+    local y : dword
+    movsxd rdx, edx
+
+    fldz; 0.0 - ustawiamy sumę na 0. Będzie się znajdować tuż pod kolejnym elementem sumowanym(st lub st(1))
+    _loop:
+fld dword ptr[rcx + 4 * rdx - 4]; x[i], <poprzedni>; kolejny element wektora na wierzchołek stosu
+fmul st, st; x[i] * x[i], <poprzedni>; podnosimy do kwadratu element
+fadd; x[i] ^ 2 + <poprzedni>; sumujemy
+; <poprzedni> to poprzednia suma częściowa np.x[0] ^ 2 + x[1] ^ 2 + x[2] ^ 2
+
+dec rdx
+jnz _loop
+; END _loop
+
+; ret
+fstp y; zwrzucamy ze stossu sumę i wrzucamy do y
+movss xmm0, y; przenosimy do xmm0
+
+ret
+asm07_ff ENDP
+
+@Wektor @FPU
+------------------------------------------------------------------------------ -
+FPU - OPERACJE NA WEKTORZE - ZEROWANIE WARTOŚCI WEKTORA, MNOŻENIE KAŻDEGO ELEMENTU itd.
+
+; rcx < -wskaźnik na wektor wynikowy(!!!tutaj jako pierwszy) y
+    ; rdx < -wskaźnik na wektor źródłowy x
+    ; r8d < -liczba elementów n
+    ; rax->nic(void)
+    asm08_vf PROC y : dword, x : dword, n : dword
+    local _5i : dword; stała 5, by pomnożyć przez 5
+
+    ; inicjalizacja stałych
+    mov _5i, 5
+
+    _loop:
+fld dword ptr[rdx + 4 * r8 - 4]; x[i]; kolejny element wektora - x[i]
+fld st; x[i], x[i]
+fld st; x[i], x[i], x[i]
+fld st; x[i], x[i], x[i]
+fmul; x[i] * x[i], x[i], x[i]
+fmul; x[i] * x[i] * x[i], x[i]
+; x[i] ^ 3, x[i]
+fimul _5i; 5 * [x] ^ 3, x[i]; mnożymy przez 5 (całkowitą, czyli fImul, nie fmul)
+fsub st, st(1); 5 * [x] ^ 3 - x[i], x[i]; -3
+fstp dword ptr[rcx + 4 * r8 - 4]; x[i]; zrzucamy ze stosu do wektora wynikowego - do y[i]
+fstp st; pusty stos; czyścimy stos, by był pusty
+
+dec r8
+jnz _loop
+; END _loop
+
+; bez zapisywania do xmm0, bo wynik jest w wektorze wynikowmy
+; nic nie zwracamy
+ret
+asm08_vf ENDP
+*/
+
+
+
+
+CPU@Wek@Suma
+asm4_r4_z1_s5 PROC
+	;założenia
+	;rax - suma
+	;rcx - wskaźnik na tablicę
+	;rdx - rozmiar tablicy I licznik pętli I licznik indeksu
+	;będzie liczył od n do 1
+
+	xor rax, rax
+	movsxd rax, edx
+
+_loop:
+	add eax, dword ptr [rcx + 4*rdx - 4]
+	
+
+	dec rdx
+	jnz _loop
+;END _loop
+	movsxd rax, eax
+	ret
+asm4_r4_z1_s5 ENDP
+
+CPU@Wek@Iloczyn 
+asm4_r4_z2_s3 PROC
+	;założenia
+	;rax - iloczyn
+	;rcx - wskaźnik na tablicę
+	;rdx - licznik pętli i indeksu tablicy
+
+	mov rax, 1	; rax <- 1
+
+_loop:
+	mov r8w, word ptr [rcx + 2*rdx - 2]
+	movsx r8, r8w
+
+	imul rax, r8
+
+	dec rdx
+	jnz _loop
+;END _loop
+
+	ret
+asm4_r4_z2_s3 ENDP
+
+CPU@Wek@Min 
+CPU@Wek@Max
+asm4_r4_z3_s3 PROC
+	;założenia
+	;rax - wartość minimalna
+	;rcx - wskaźnik na tablicę
+	;rdx - licznik pętli i indeksu tablicy
+
+	mov ax, word ptr [rcx + 2*rdx - 2]
+	movsxd rax, eax
+	;min <- a[n - 1]
+	;zakładamy że element ostatni jest tym minimalnym
+
+_loop:
+	mov r8w, word ptr [rcx + 2*rdx - 2]
+	movsx r8, r8w
+
+	cmp r8, rax		; porównaj a[i] i min
+	cmovl rax, r8	; przypisz jeśli a[i] < min
+
+
+	dec rdx
+	jnz _loop
+;END _loop
+	
+	ret
+asm4_r4_z3_s3 ENDP
+
+CPU@Wek@Avg
+asm4_r4_z5_s3 PROC
+	;rax - suma
+	;r8 - licznik
+	;r15 - do podzielenia (n)
+	xor rax, rax
+	movsxd rdx, edx
+	mov r8, rdx
+	mov r15, rdx
+
+_loop:
+	mov r9w, word ptr [rcx + 2*r8 - 2] 
+	movsx r9, r9w
+
+	add rax, r9
+
+	dec r8
+	jnz _loop
+;END _loop
+	cqo
+	idiv r15
+
+	ret
+asm4_r4_z5_s3 ENDP
+
+CPU@Wek@IloczynSkalarny
+asm4_r4_z6_s3 PROC
+	;rax - iloczyn skalarny
+	;r10 - kolejny element z tablicy a
+	;r11 - kolejny element z tablicy b
+	;r8 - licznik pętli i el. tablicy
+	movsxd r8, r8d
+
+	xor rax, rax
+
+_loop:
+	;ładuj
+	mov r10w, word ptr [rcx + 2*r8 - 2]
+	mov r11w, word ptr [rdx + 2*r8 - 2]
+	movsx r10, r10w
+	movsx r11, r11w
+	
+	;mnóż
+	imul r10, r11
+	;dodaj
+	add rax, r10
+
+	dec r8
+	jnz _loop
+;END _loop
+	ret
+asm4_r4_z6_s3 ENDP
+
+CPU@Wek@Suma
+asm4_r4_z7_s3 PROC
+	;rdx - licznik pętli i el. tablicy
+	;rax - suma
+	;r8 - kolejny element
+
+	movsxd rdx, edx
+	xor rax, rax
+
+_loop:
+	;ładuj
+	mov r8w, word ptr [rcx + 2*rdx - 2]
+	movsx r8, r8w
+
+	;oblicz
+	imul r8, 5	;5a[i]
+	sub r8, 3	;5a[i] - 3
+	
+	;sumuj
+	add rax, r8	;suma += 5a[i] - 3
+	
+	dec rdx
+	jnz _loop
+;END _loop
+	ret
+asm4_r4_z7_s3 ENDP
+
+CPU@Wek@Parzyste
+asm4_r4_z10_s3 PROC
+	;r10 - licznik pętli i el. tablicy (przeniesiono z rdx)
+	;r11 - licznik parzystych
+	;r8 - kolejny element
+	movsxd rdx, edx
+
+	xor r11, r11
+	mov r10, rdx
+
+	mov r15, 2
+
+_loop:
+	mov r8w, word ptr [rcx + 2*r10 - 2]
+	movsx r8, r8w
+
+	mov rax, r8
+	cqo
+	idiv r15
+	
+	cmp rdx, 0
+	jnz _skipNieparzysta ; skocz jeśli reszta != 0
+
+	inc r11
+
+_skipNieparzysta:
+
+	dec r10
+	jnz _loop
+;END _loop
+	
+	mov rax, r11
+	ret
+asm4_r4_z10_s3 ENDP
+
+CPU@Wek@Przedzial
+asm4_r4_z14_s5 PROC
+	;założenia 
+	;rax	- licznik elementów, które są (5, 15]
+	;rcx	- wskaźnik na tablicę
+	;rdx	- rozmiar tablicy I licznik pętli I licznik indeksu
+	;r8		- kolejny element tablicy
+	;r10b	- czy element > 5?
+	;r11b	- czy element <= 15?
+	;będzie liczył od n do 1
+
+	xor rax, rax
+	mov edx, edx
+
+_loop:
+	mov r8d, dword ptr [rcx + 4*rdx - 4]	;r8 <- kolejny element
+	movsxd r8, r8d							; rozszerz z uzwględnieniem znaku
+
+	;el > 5?
+	cmp r8, 5
+	setg r10b				; r10b <- true jeśli el > 5
+
+	;el <= 15?
+	cmp r8, 15
+	setle r11b				; r11b <- true jeśli el <= 15
+
+	;el > 5 && el <= 15?
+	and r10b, r11b			; r10b <- r10b AND r11b
+							; and zmienia flagi, więc możemy pominąć cmp r10b, 1 albo cmp r10b, 0
+	jz _skip_outOfRange		; skocz jeśli r10b == 0 (ZF=1) - pomiń zwiększanie licznika
+
+	inc rax
+
+_skip_outOfRange:
+	dec rdx					; licznik --
+	jnz _loop				; while (licznik != 0)
+;END _loop
+
+	ret
+asm4_r4_z14_s5 ENDP
+
+CPU@WekXY@
+asm4_r5_z1_s2 PROC aPtr:qword, yPtr:qword, n:dword
+	;założenia 
+	;r8 - licznik pętli I licznik elementów
+	;r10w - kolejny element z wektora a
+	;eax - obliczony element wektora y
+	
+					
+					;brak movzx dla 32->64 bit
+					;górne 32 bity są ZAWSZE zerowane (64 bitowego rejestru) gdy operujemy na rejestrze 32 bit
+					;nie działa to jednak gdy operujemy na wersji rejestru 8 i 16 bit
+					;więc nie potrzeba movzx
+
+_loop:
+	;ładuj
+	mov r10w, word ptr [rcx + 2*r8 - 2]
+	movsx r10d, r10w
+
+	;16*a[i] + 5
+	mov eax, 16		;y[i]: 16
+	imul eax, r10d	;y[i]: 16*a[i]
+	add eax, 5		;y[i]: 16*a[i] + 5
+
+	;zapisz
+	mov dword ptr [rdx + 4*r8 - 4], eax
+	
+	dec r8		;licznik --
+	jnz _loop	;while(licznik != 0)
+;END _loop
+	ret
+asm4_r5_z1_s2 ENDP
+
+CPU@WekXY@Suma
+asm4_r5_z3_s2 PROC aPtr:qword, bPtr:qword, yPtr:qword, n:dword
+	;założenia 
+	;r9d - licznik pętli I licznik elementów
+	;r10w - kolejny element z wektora a
+	;r11w - kolejny element z wektora b
+	;eax  - obliczony element wektora y
+	
+_loop:
+	;ładuj
+	mov r10w, word ptr [rcx + 2*r9 - 2]
+	mov r11w, word ptr [rdx + 2*r9 - 2]
+
+	;konwertuj
+	movsx r10, r10w
+	movsx r11, r11w
+
+	;a + b
+	mov rax, r10	;y[i]: a[i]
+	add rax, r11	;y[i]: a[i] + b[i]
+
+	;zapisz
+	mov dword ptr [r8 + 4*r9 - 4], eax
+
+	dec r9
+	jnz _loop
+;END _loop
+	mov rax, r8
+	
+	ret
+asm4_r5_z3_s2 ENDP
+
+CPU@WekXY@Iloraz
+asm4_r5_z5_s3 PROC a:qword, b:qword, y:qword, n:dword
+	;założenia
+	;rcx - wskaźnik na wektor a
+	;r10 - wskaźnik na wektor b
+	;r8  - wskaźnik na wektor y/wynikowy
+	;r9  - licznik pętli i el. w tablicy
+	;ax/rax - kolejny iterowany element wektora a
+	;bx/rbx - kolejny iterowany element wektora b
+	movsxd r9, r9d
+	mov r10, rdx
+
+_loop:
+	;ładuj
+	mov ax, word ptr [rcx + 2*r9 - 2] ;a[i]
+	mov bx, word ptr [r10 + 2*r9 - 2] ;b[i]
+	movsx rax, ax
+	movsx rbx, bx
+
+	cqo		;w rax jest już a[i], rax -> rdx:rax
+	idiv rbx;a[i]/b[i]
+
+	;zapisz
+	mov qword ptr [r8 + 8*r9 - 8], rax ;y[i] <- a[i]/b[i]
+
+	dec r9
+	jnz _loop
+;END _loop
+
+	ret
+asm4_r5_z5_s3 ENDP
+
+CPU@WekXY@Parzyste
+asm4_r5_z7_s3 PROC
+	;założenia
+	;rcx - wskaźnik na wektor a
+	;r8  - licznik pętli i el. tablicy
+	;r9w - iterowany element wektora a
+	;r12 - indeks (o 1 mniejszy)
+	;r15 - stała 2
+	;r14w - stała 0
+	movsxd rdx, edx
+	mov r8, rdx
+	mov r15, 2
+	mov r14, 0
+
+_loop:
+	;ładuj
+	mov r9w, word ptr [rcx + 2*r8 - 2]
+
+	lea r12, [r8 - 1]
+	mov rax, r12;rax <- indeks
+	cqo			;rozszerz
+	idiv r15	;podziel przez 2
+
+	cmp rdx, 0	;sprawdź
+	cmove r9w, r14w ; el. <- 0 jeśli indeks parzysty
+
+	;zapisz
+	mov word ptr [rcx + 2*r8 - 2], r9w ; zapisz ponownie (word ptr!!!)
+
+	dec r8
+	jnz _loop
+;END _loop
+	ret
+asm4_r5_z7_s3 ENDP
+
+CPU@Mac@Suma
+asm5_r1_z1_s3 PROC
+	;założenia
+	;rcx - macierz A
+	;rdx - liczba wierszy + licznik wierszy
+	;r8  - liczba kolumn
+	;r9  - licznik kolumn w każdym wierszu
+	;rax - SUMA
+	;r11 - kolejny wiersz (wskaźnik) - A[i] - short*
+	;r12 - kolejny element (wartość) - A[i][j] - short
+	movsxd rdx, edx
+	movsxd r8, r8d
+	xor rax, rax
+
+_rows:
+	;A[i]
+	mov r11, qword ptr [rcx + 8*rdx - 8]
+
+	mov r9, r8
+	_cols:
+		;ładuj
+		;A[i][j]
+		mov r12w, word ptr [r11 + 2*r9 - 2]
+		movsx r12, r12w
+
+		;oblicz
+		add rax, r12 ;sum += A[i][j]
+
+		dec r9
+		jnz _cols
+	;END _cols
+
+	dec rdx
+	jnz _rows
+;END _rows
+	
+	ret
+asm5_r1_z1_s3 ENDP
+
+CPU@Mac@Kwadrat
+asm5_r2_z2_s3 PROC
+	;założenia
+	;rcx - macierz A
+	;rdx - liczba wierszy, licznik pętli wierszy
+	;r8  - liczba kolumn
+	;r9  - licznik pętli kolumn
+	;r11 - wskaźnik na wiersz (zawsze wskaźnik/qword w 64bit) A[i]
+	;r12 - wartość w macierzy A[i][j]
+	movsxd rdx, edx
+	movsxd r8, r8d
+
+_rows:
+	mov r11, qword ptr [rcx + 8*rdx - 8] ; A[i]
+	
+	mov r9, r8
+	_cols:
+		mov r12w, word ptr [r11 + 2*r9 - 2] ; A[i][j]
+
+		;obliczenia
+		imul r12w, r12w	; r12w*r12w
+
+		;zapisz
+		mov word ptr [r11 + 2*r9 - 2], r12w  ; A[i][j] <- r12*r12 
+
+		dec r9
+		jnz _cols
+	;END _cols
+
+	dec rdx
+	jnz _rows
+;END _rows
+
+
+	ret
+asm5_r2_z2_s3 ENDP
+
+CPU@Mac@Zerowanie
+asm5_r2_z11_s3 PROC
+	;rcx - wskaźnik na macierz a
+	;r9 - liczba wierszy I licznik wierszy (indeks i)
+	;r10 - liczba kolumn
+	;r11 - licznik kolumn (indeks j)
+	movsxd rdx, edx
+	movsxd r8, r8d
+	mov r9, rdx
+	mov r10, r8
+
+	;r12 - wskaźnik na kolejny wiersz A[i]
+	;r13 - kolejny element macierzy A[i][j]
+
+_wiersze:
+	mov r12, qword ptr [rcx + 8*r9 - 8]
+
+	mov r11, r10	; resetujemy licznik pętli kolumn
+	_kolumny:
+		;ładuj
+		mov r13w, word ptr [r12 + 2*r11 - 2]
+		
+		cmp r9, r11	; r9 <= r11
+		jle _pomin	;jge, jne, je
+
+
+		mov word ptr [r12 + 2*r11 - 2], 0
+
+	_pomin:
+
+
+		dec r11
+		jnz _kolumny
+	;END _kolumny
+
+	dec r9
+	jnz _wiersze
+;END _wiersz
+	ret
+asm5_r2_z11_s3 ENDP
+
+CPU@Mac@Zerowanie 
+asm5_r2_z13_s3 PROC
+local cholerna2:qword
+	;rcx - wskaźnik na macierz A
+	;r10 - liczba wierszy (z edx)
+	;r11 - liczba kolumn (z r8d)
+	movsxd rdx, edx
+	mov r10, rdx
+	mov r11, r8
+
+	mov cholerna2, 2
+
+	;r12 - licznik pętli kolumny
+
+
+	;r13 - wskaźnik na wiersz - A[i] - short*
+	;r14 - wartość w macierzy - A[i][j] - short
+
+_wiersze:
+	mov r13, qword ptr [rcx + 8*r10 - 8]
+
+	mov r12, r11
+	_kolumny:
+		mov rax, r12
+		add rax, r10
+
+		cqo
+		idiv cholerna2
+		cmp rdx, 0	; reszta == 0?
+		jne _pomin
+
+		mov word ptr [r13 + 2*r12 - 2], 0
+
+		_pomin:
+			
+		dec r12
+		jnz _kolumny
+	;END _kolumny
+
+	dec r10    
+	jnz _wiersze
+;END _wiersze
+
+	
+
+	ret
+asm5_r2_z13_s3 ENDP
+
+CPU@Mac@Szachownica
+asm5_r2_z15_s2 PROC
+local jebane2:qword, iiiNieparzyste:byte, jjjNieparzyste:byte
+	;założenia
+	;rcx - macierz A
+	;r15 - macierz Y
+	;r8  - liczba wierszy i licznik wierszy
+	;r9  - liczba kolumn
+	;r10 - licznik kolumn
+
+	;r11 - wskaźnik na wiersz A[i]
+	;r12 - wskaźnik na wiersz Y[i]
+
+	;r13 - wartość macierzy A[i][j]
+	;r14 - wartość macierzy Y[i][j]
+	mov r15, rdx
+	movsxd r8, r8d
+	movsxd r9, r9d
+
+	mov jebane2, 2
+
+_rows:
+	mov r11, qword ptr [rcx + 8*r8 - 8]; A[i][j]
+	mov r12, qword ptr [r15 + 8*r8 - 8]; Y[i][j]
+
+	mov r10, r9
+	_cols:
+		;ładuj
+		mov r13w, word ptr [r11 + 2*r10 - 2]
+
+		;------------------------------------
+		;sprawdź czy i % 2 != 0  &&  j % 2 != 0
+		;------------------------------------
+		;i
+		mov rax, r8
+		dec rax
+		cqo						; cqo tym razem, bo masz r-a-iksa
+		idiv jebane2
+		cmp rdx, 0
+		setne iiiNieparzyste		; iNieparzyste <- i % 2 != 0
+
+		;j
+		mov rax, r10
+		dec rax
+		cqo						; cqo tym razem, bo masz r-a-iksa
+		idiv jebane2
+		cmp rdx, 0
+		setne jjjNieparzyste		; jNieparzyste <- j % 2 != 0
+
+		;&&
+		mov bl, iiiNieparzyste
+		and bl, jjjNieparzyste
+
+		cmp bl, 0
+		je _skip				; pomijamy, bo indeks jest jednak parzysty
+
+		mov r13w, 0
+
+_skip:
+		;zapisz
+		movsx r13d, r13w
+		mov dword ptr [r12 + 4*r10 - 4], r13d
+
+		dec r10
+		jnz _cols
+	;END _cols
+
+	dec r8
+	jnz _rows
+;END _rows
+
+	ret
+asm5_r2_z15_s2 ENDP
+
+CPU@Mac@IloczynMacierzWektor
+asm5_r2_z20_s3 PROC a:qword, h:qword, y:qword, r:dword, c:dword
+	;rcx - wskaźnik na macierz
+	;rdx - wskaźnik na wektor kolumnowy
+	;r8 - wskaźnik na wektor wierszowy (wynik)
+	;r9 - liczba wierszy, licznik wierszy
+	;r10 - liczba kolumn
+	;r11 - licznik kolumn
+	movsxd r9, r9d
+	mov r10d, c
+	movsxd r10, r10d
+
+	;r12 - wskaźnik na wiersz macierzy - A[i]
+	;r13 - wartość macierzy - A[i][j]
+	;r14 - wartość wektora h[i]
+
+_wiersze:
+	mov r12, qword ptr [rcx + 8*r9 - 8]
+
+	mov word ptr [r8 + 2*r9 - 2], 0 ; zeruj y[i]
+	
+	mov r11, r10
+	_kolumny:
+		;A[i][j]
+		mov r13w, word ptr [r12 + 2*r11 - 2]
+		
+		;h[j]
+		mov r14w, word ptr [rdx + 2*r11 - 2]
+
+		;A[i][j]*h[j]
+		imul r13w, r14w 
+
+		;sumuj w y[i]
+		add word ptr [r8 + 2*r9 - 2], r13w
+
+		
+		dec r11
+		jnz _kolumny
+	;END _kolumny
+
+	dec r9
+	jnz _wiersze
+;END _wiersze
+	
+	ret
+asm5_r2_z20_s3 ENDP
+
+
+FPU@Delta
+; xmm0 <- float a
+; xmm1 <- float b
+; xmm2 <- float c
+; xmm0 -> float y = b^2 - 4ac
+asm01_ff PROC a:dword, b:dword, c:dword
+local y:dword, _4i:dword
+
+    movss a, xmm0 ; a <- xmm0
+    movss b, xmm1 ; b <- xmm1
+    movss c, xmm2 ; c <- xmm2
+
+    fld b       ; b
+    fld st      ; b, b
+    fmul        ; b^2
+
+    fld a       ; a, b^2
+    fmul c      ; ac, b^2
+
+    mov _4i, 4  ; _4i <- int(4)
+    fimul _4i   ; 4ac, b^2
+    ;^^!!! mnożenie przez całkowitą z pamięci
+    fsub        ; fsubp (st1), st => st(1) = st(1) - st !!! => b^2 - 4ac
+    fstp y      ; Pusty stos
+
+    movss xmm0, y ; xmm0 <- y
+    ret
+asm01_ff ENDP
+
+FPU@
+; xmm0 <- float a
+; xmm1 <- float b
+; xmm0 -> y
+asm04_ff PROC a:dword, b:dword
+local y:dword 
+
+    movss a, xmm0
+    movss b, xmm1
+
+    ;działania na a
+    fld a           ; a
+    fmul st, st     ; a^2
+    fld1            ; 1.0, a^2
+    fdivr           ; 1.0/a^2 -> a^(-2)
+    
+    ;działania na b
+    fld b           ; b,                        a^(-2)
+    fabs            ; |b|,                      a^(-2)
+    fld st          ; |b|, |b|,                 a^(-2)
+    fmul st, st(1)  ; |b|^2, |b|,               a^(-2)
+    fmul            ; |b|^3,                    a^(-2)
+    fld1            ; 1.0, |b|^3,               a^(-2)
+    fdivr           ; 1.0/|b|^3,                a^(-2)
+                    ; |b|^(-3),                 a^(-2)
+    fsqrt           ; sqrt(|b|^(-3)),           a^(-2)
+
+    ;1.0
+    fld1            ; 1.0, sqrt(|b|^(-3)),      a^(-2)
+    
+    ;suma
+    fadd            ; 1.0 + sqrt(|b|^(-3)),     a^(-2)
+    fadd            ; 1.0 + sqrt(|b|^(-3)) + a^(-2)
+
+    ;^2
+    fmul st, st     ; st(0)^2
+
+    ;ret
+    fstp y          ; pusty stos
+
+    movss xmm0, y
+
+    ret
+asm04_ff ENDP
+
+FPU@Sin
+FPU@Cos 
+FPU@Trig
+FPU@Katy 
+;xmm0<-float a
+;xmm1<-float b
+;xmm0->float
+asm05_ff PROC a:dword, b:dword
+local y:dword, _180:dword, _2:dword, _4:dword
+movss a,xmm0
+movss b,xmm1
+mov _180,180
+mov _2,2
+mov _4,4
+
+;FPU
+;4sin^3(api/180)-2cos(bpi/180)^2
+;4sin^3(api/180)
+fldpi        ;pi
+fld a        ;a,pi
+fmul         ;api
+fld _180     ;180,api
+fdiv         ;api/180
+fld st       ;api/180,api/180
+fmul st,st(1);(api/180)^2,api/180
+fmul         ;(api/180)^3
+fsin         ;sin^3(api/180)
+fimul _4     ;4sin^3(api/180)
+
+
+;2cos(bpi/180)^2
+fldpi       ;pi,4sin^3(api/180)
+fld b       ;pi,b,4sin^3(api/180)
+fmul        ;api,4sin^3(api/180)
+fld _180    ;180,api,4sin^3(api/180)
+fdiv        ;api/180,4sin^3(api/180)
+fcos        ;cos(api/180),4sin^3(api/180)
+fld st      ;cos(api/180),cos(api/180),4sin^3(api/180)
+fmul        ;cos(api/180)^2,4sin^3(api/180)
+fimul _2    ;2cos(api/180)^2,4sin^3(api/180)
+fsub       ;4sin^3(api/180)-2cos(a*pi/180)^2
+fstp y      ;pusty stos
+movss xmm0,y
+ret
+asm05_ff ENDP
+
+FPU@Sin
+FPU@Cos 
+FPU@Trig
+FPU@Katy 
+;xmm0 <- float a    ; w stopniach, a musi być w radianach
+;xmm1 <- float b    ;
+;xmm2 <- float x
+;xmm0 -> double
+asm03 PROC a:dword, b:dword, x:dword
+local y:qword, _180i:qword
+    ;stopnie na radiany
+    ;(pi/180) * stopnie
+    mov _180i, 180
+
+    movss a, xmm0
+    movss b, xmm1
+    movss x, xmm2
+
+    ;fpu
+    ;tan(xa)^2 - cos^2(xb)
+    ;tan(xa)^2
+    fldpi       ; pi
+    fild _180i  ; 180, pi
+    fdiv        ; pi/180
+    fld a       ; a, pi/180
+    fld x       ; x, a, pi/180
+    fmul        ; a*x, pi/180
+    fmul        ; (pi/180) * a * x
+    fmul st, st ; [(pi/180) * a * x]^2
+    fptan       ; 1.0, tan([(pi/180) * a]^2)
+    fstp st     ; tan([(pi/180) * a]^2)
+
+    ;cos^2(xb)
+    fldpi       ; pi,                   tan([(pi/180) * a]^2)
+    fild _180i  ; 180, pi,              tan([(pi/180) * a]^2)
+    fdiv        ; pi/180,               tan([(pi/180) * a]^2)
+    fld b       ; b, pi/180,            tan([(pi/180) * a]^2)
+    fld x       ; x, b, pi/180,         tan([(pi/180) * a]^2)
+    fmul        ; b*x, pi/180,          tan([(pi/180) * a]^2)
+    fmul        ; (pi/180)*b*x,         tan([(pi/180) * a]^2)
+    fcos        ; cos((pi/180)*b*x),    tan([(pi/180) * a]^2)
+    fmul st, st ; cos^2((pi/180)*b*x),  tan([(pi/180) * a]^2)
+
+    ;-
+    fsub        ; tan([(pi/180) * a]^2) - cos^2((pi/180)*b*x)
+
+    fstp y      ; pusty stos
+    
+    movsd xmm0, y
+    ret
+asm03 ENDP
+
+FPU@Log
+; xmm0 <- float a
+; xmm1 <- float b
+; xmm0 -> y
+asm06_ff PROC a:dword, b:dword
+local y:dword
+
+    movss a, xmm0
+    movss b, xmm1
+
+    ;lewa strona
+    fld1        ; 1.0
+        ;argument
+    fld a       ; a, 1.0
+    fld b       ; b, a, 1.0
+    fld1        ; 1.0, b, a, 1.0
+    fadd        ; b + 1.0, a, 1.0
+    fdiv        ; a / (b+1.0), 1.0
+    fld1        ; 1.0, (a/b+1.0), 1.0
+    fadd        ; 1.0 + (a/b+1.0), 1.0
+    fmul st, st ; [1 + (a/(b+1.0))]^2, 1.0
+    fyl2x       ; 1.0*log2([1 + (a / (b+1.0))]^2)   ; LHS - skrót
+
+    ;prawa strona
+    fld1    ; 1.0, LHS
+        ;argument
+    fld b       ; b, 1.0, LHS
+    fld a       ; a, b, 1.0, LHS
+    fld1        ; 1.0, a, b, 1.0, LHS
+    fadd        ; a + 1.0, b, 1.0, LHS
+    fdiv        ; b/(a+1.0), 1.0, LHS
+    fld1        ; 1.0, b/(a+1.0), 1.0, LHS
+    fadd        ; 1.0 + b/(a+1.0), 1.0, LHS
+    fmul st, st ; [1.0 + b/(a+1.0)]^2, 1.0, LHS
+    fyl2x       ; 1.0*log2([1.0 + b/(a+1.0)])^2, LHS
+
+    ;suma
+    fadd    ; 1.0*log2([1 + b/(a+1.0)]^2) + LHS
+            ; 1.0*log2([1 + b/(a+1.0)]^2) + 1.0*log2([1 + (a / (b+1.0))]^2)
+
+    ;ret
+    fstp y  ; pusty stos
+    movss xmm0, y
+
+    ret
+asm06_ff ENDP
+
+FPU@Wek@SumaKwadratow
+; rcx <- float* x
+; edx <- uint n
+; xmm0 -> y (suma)
+asm07_ff PROC x:dword, n:sword
+local y:dword
+;założenia:
+; rcx - wskaźnik na tablicę
+; edx (rdx) - licznik pętli + licznik indeksów elementów tablicy
+
+    fldz                            ; 0.0
+_loop:
+    fld dword ptr [rcx + 4*rdx - 4] ; x[i], <poprzedni>
+    fmul st, st                     ; x[i]*x[i], <poprzedni>
+    fadd                            ; x[i]^2 + <poprzedni>
+
+    dec rdx
+    jnz _loop   ; while(n != 0)
+;END _loop
+    
+    ;ret
+    fstp y                          ; pusty stos
+    movss xmm0, y 
+
+    ret
+asm07_ff ENDP
+
+FPU@WekXY 
+; rcx <- float* y
+; rdx <- float* x
+; r8d <- uint n
+; rax -> nic (void)
+asm08_vf PROC y:dword, x:dword, n:dword
+local _5i:dword
+;założenia
+;r8d (r8) - licznik pętli i indeksów elementów tablicy
+
+    ;inicjalizacja stałych
+    mov _5i, 5
+
+
+_loop:
+    fld dword ptr [rdx + 4*r8 - 4]      ; x[i]
+    fld st                              ; x[i], x[i]
+    fld st                              ; x[i], x[i], x[i]
+    fld st                              ; x[i], x[i], x[i]
+    fmul                                ; x[i]*x[i], x[i], x[i]
+    fmul                                ; x[i]*x[i]*x[i], x[i]
+                                        ; x[i]^3, x[i]
+    fimul _5i                           ; 5*[x]^3, x[i]
+    fsub st, st(1)                      ; 5*[x]^3 - x[i], x[i]
+    fstp dword ptr [rcx + 4*r8 - 4]     ; x[i]
+    fstp st                             ; pusty stos
+
+    dec r8
+    jnz _loop   ;
+;END _loop
+
+    ret
+asm08_vf ENDP
+
+
+FPU@Wek@Suma
+;ecx <- uint n
+;rdx <- double* a
+;xmm0 -> suma
+asm09_01_01_02 PROC
+local y:qword
+    ;założenia
+    ;rdx - wskaźnik na wektor (double*)
+    ;rcx - liczba elementów
+    ;y - suma 
+    movsxd rcx, ecx
+
+    ;fpu
+    fldz        ; 0.0   - element neutralny
+_loop:
+    fld qword ptr [rdx + 8*rcx - 8] ; x[i], <suma częściowa>
+    
+    fadd                            ; <suma częściowa> + x[i]
+
+    dec rcx
+    jnz _loop
+;END _loop
+    ;przygotuj do zwrócenia
+    fstp y                          ; pusty stos
+    movsd xmm0, y
+
+    ret
+asm09_01_01_02 ENDP
+
+FPU@Wek@Max 
+FPU@Wek@Min 
+;ecx <- uint n
+;rdx <- float* x
+;xmm0 -> max (float)
+asm09_01_04_01 PROC
+local y:dword
+    ;założenia
+    ;rcx - liczba elementów, licznik pętli
+    ;rdx - wskaźnik na wektor (float*)
+
+    ;W trakcie porównywania i po zakończeniu pętli:
+    ;st - wartość max
+    ;st(1) - kolejny porównywany element
+
+    movsxd rcx, ecx
+
+    fld dword ptr [rdx + 4*rcx - 4]     ; x[0] 
+
+_loop:
+    fld dword ptr [rdx + 4*rcx - 4]     ; x[i], <max>
+    fxch                                ; <max>, x[i]
+    fcomi st, st(1)                     ; porównaj <max> i x[i]
+    fcmovb st, st(1)                    ; <max> <- x[i] jeśli <max> < x[i]
+                                        ; <max> ,x[i]
+    fxch                                ; x[i], <max>
+    fstp st                             ; <max>
+    
+    
+    dec rcx
+    jnz _loop
+;END _loop
+    fstp y                          ; pusty stos
+
+    movss xmm0, y
+    
+    ret
+asm09_01_04_01 ENDP
+
+
+FPU@Wek@Avg
+FPU@Wek@Srednia
+;ecx <- uint n
+;rdx <- float* x
+;xmm0 -> średnia (double)
+asm09_01_05_03 PROC
+local y:qword, n:qword
+    ;założenia
+    ;rcx - liczba elementów, licznik pętli
+    ;n - liczba elementów
+    ;rdx - wskaźnik na wektor
+    movsxd rcx, ecx
+    mov n, rcx
+
+    ;fpu
+    fldz        ; 0.0   - element neutralny
+_loop:
+    fld dword ptr [rdx + 4*rcx - 4] ; x[i], <suma częściowa>
+    
+    fadd                            ; <suma częściowa> + x[i]
+
+    dec rcx
+    jnz _loop
+;END _loop
+    ;podziel
+    fild n                          ; n, <suma>
+    fdiv                            ; <suma> / n
+
+    ;przygotuj do zwrócenia
+    fstp y                          ; pusty stos
+    movsd xmm0, y
+
+    ret
+asm09_01_05_03 ENDP
+
+FPU@WekXY@
+;ecx <- uint n
+;rdx <- float* a
+;r8  <- float* b
+;r9  <- double* y (!!!)
+;rax -> nic
+asm09_02_03_02 PROC
+    ;założenia
+    ;rcx - licznik pętli i elementów a i b
+    ;rdx - wskaźnik na wektor a
+    ;r8  - wskaźnik na wektor b
+    ;r9  - wskaźnik na wektor y
+    movsxd rcx, ecx
+
+_loop:
+    ;(a[i]^4 + b[i]^3)/ln2
+
+
+    ;a[i]^4 + b[i]^3
+    ;a[i]^4
+    fld qword ptr [rdx + 8*rcx - 8]     ; a[i]
+    fld st                              ; a[i], a[i]
+    fmul st, st(1)                      ; a[i]^2, a[i]
+    fmul st, st(1)                      ; a[i]^3, a[i]
+    fmul                                ; a[i]^4
+
+    ;b[i]^3
+    fld qword ptr [r8 + 8*rcx - 8]      ; b[i],             a[i]^4
+    fld st                              ; b[i], b[i],       a[i]^4
+    fmul st, st(1)                      ; b[i]^2, b[i],     a[i]^4
+    fmul                                ; b[i]^3            a[i]^4 
+
+    ;+
+    fadd                                ; a[i]^4 + b[i]^3
+
+    ;ln2
+    fldln2                              ; ln(2), a[i]^4 + b[i]^3
+
+    ;/
+    fdiv                                ; (a[i]^4 + b[i]^3) / ln(2)
+
+    ;zapisz do y[i]
+    fstp qword ptr [r9 + 8*rcx - 8]     ; <pusty stos
+
+    dec rcx
+    jnz _loop
+;END _loop
+    ret
+asm09_02_03_02 ENDP
+
+
+FPU@WekXY@Sin 
+FPU@WekXY@Cos 
+FPU@WekXY@Katy
+;ecx <- uint n
+;rdx <- float* a
+;r8 <- float* b
+;r9 <- float* y
+asm09_02_05_01 PROC
+local _degRad:dword, _20i:dword, _180i:dword
+    ;założenia
+    ;rcx - licznik pętli i elementów a i b i y
+    ;rdx - wskaźnik na wektor a
+    ;r8  - wskaźnik na wektor b
+    ;r9  - wskaźnik na wektor y
+    movsxd rcx, ecx
+
+    ;stałe
+    mov _20i, 20
+    mov _180i, 180
+    
+    ;stała konwersji stopnie -> radiany
+    fldpi       ; pi
+    fild _180i  ; 180, pi
+    fdiv        ; pi/180
+    fstp _degRad; pusty stos
+
+_loop:
+    ;20sin(a[i]) + tan^2(b[i]) - należy skonwertować stopnie na radiany!!!!
+    ;20sin(a[i]) => 20sin(a[i]*(pi/180))
+    fld dword ptr [rdx + 4*rcx - 4]     ; a[i]
+    fld _degRad                         ; pi/180, a[i]
+    fmul                                ; a[i]*(pi/180)
+    fsin                                ; sin(a[i]*(pi/180))
+    fimul _20i                          ; 20sin(a[i]*(pi/180))
+
+    ;tan^2(b[i]) == [tan(b[i])]^2 => [tan(b[i] * (pi/180))]^2
+    fld dword ptr [r8 + 4*rcx - 4]      ; b[i],                                     20sin(a[i]*(pi/180))
+    fld _degRad                         ; pi/180, b[i],                             20sin(a[i]*(pi/180))
+    fmul                                ; b[i]*(pi/180),                            20sin(a[i]*(pi/180))
+	
+	
+	
+	
+	
+    fptan                               ; 1.0, tan(b[i]*(pi/180)),                  20sin(a[i]*(pi/180))
+    fstp st                             ; tan(b[i]*(pi/180)),                       20sin(a[i]*(pi/180))
+	
+	
+	
+    fld st                              ; tan(b[i]*(pi/180)), tan(b[i]*(pi/180)),   20sin(a[i]*(pi/180))
+    fmul                                ; tan(b[i]*(pi/180))^2,                     20sin(a[i]*(pi/180))
+
+    ;+
+    fadd                                ; tan(b[i]*(pi/180))^2 + 20sin(a[i]*(pi/180))
+
+
+    ;zapisz
+    fstp dword  ptr [r9 + 4*rcx - 4]    ; pusty stos
+    dec rcx 
+    jnz _loop
+;END loop
+
+    ret
+asm09_02_05_01 ENDP
+
+
+CPU@Mac@Przekatna
+CPU@Mac@Podziel 
+;rcx <- int** a
+;edx <- uint r
+;r8d <- uint c
+;zwróć nic
+asm05 PROC 
+local _2
+    ;rcx - wskaźnik na macierz a
+    ;r10 - liczba wierszy, licznik wierszy
+    ;r11 - liczba kolumn
+    ;r12 - licznik kolumn
+    movsxd rdx, edx
+    movsxd r8, r8d
+    mov r10, rdx
+    mov r11, r8
+
+    ;r13 - wskaźnik na wiersz
+    ;r14d - wartosć A[i][j]
+
+    ;min(r, c)
+    mov rax, r10
+    cmp rax, r11
+    cmovg rax, r11
+
+    ;limit min(rows, cols)!!!!!!!!!!!!
+    mov r11, rax
+    mov r10, rax
+
+
+_wiersze:
+    mov r13, qword ptr [rcx + 8*r10 - 8]
+    
+    mov r12, r11
+    _kolumny:
+        mov r14d, dword ptr [r13 + 4*r12 - 4]
+
+        cmp r10, r12
+        jne _pomin
+
+        sar r14d, 1
+        mov dword ptr [r13 + 4*r12 - 4], r14d
+
+        _pomin:
+
+        dec r12
+        jnz _kolumny
+    ;END _kolumny
+    
+    dec r10
+    jnz _wiersze
+;END _wiersze
+
+
+    ret
+asm05 ENDP
+
+CPU@Mnozenie
+;ecx <- int32 a
+;edx <- int32 b
+;eax -> int64
+asm01 PROC
+    ;ZAŁOŻENIA
+    ;r8 - licznik pętli
+    ;r9 - element dodawany
+    ;np. r8 - a, r9 - b
+    movsxd rcx, ecx
+    movsxd rdx, edx
+    xor r13b, r13b
+    xor r14b, r14b
+    xor rax, rax
+
+    ;przypadek 1
+    ;a i b jest ujemne
+    cmp rcx, 0
+    setl r13b
+    cmp rdx, 0
+    setl r14b
+
+    and r13b, r14b
+    jnz _abNeg  ; jnz, bo sprawdzamy warunek logiczny (0/1)
+
+    ;przypadek 2
+    ;a jest ujemne
+    cmp rcx, 0
+    jl _aNeg
+
+    ;przypadek 3
+    ;b jest ujemne
+    cmp rdx, 0
+    jl _bNeg
+
+    ;przypadek 4
+    ;a i b jest dodatnie
+    
+    jmp _abPos ; a i b jest dodatnie
+
+_abNeg:
+    neg rcx
+    neg rdx
+    mov r9, rcx
+    mov r8, rdx
+    jmp _cont
+
+_aNeg:
+    mov r9, rcx
+    mov r8, rdx
+    jmp _cont
+
+_bNeg:
+    mov r9, rdx
+    mov r8, rcx
+    jmp _cont
+
+_abPos:
+    mov r9, rdx
+    mov r8, rcx
+    jmp _cont
+
+_cont:
+
+_loop:
+    add rax, r9 ; rax += b
+
+    dec r8
+    jnz _loop
+;END _loop
+
+    ret
+asm01 ENDP
+
+CPU@Switch 
+CPU@Wyboru
+;rcx <- int64 a
+;rdx <- int64 b
+;r8 <- int64 c
+;r9 <- int64 d
+;stos <- int64 e
+;stos <- int64 x
+asm02 PROC a:qword, b:qword, c:qword, d:qword, e:qword, x:qword
+    mov r10, e
+    mov r11, x
+
+    ;przypadek x==100
+    cmp r11, 100
+    je _case100
+
+    ;przypadek x==200
+    cmp r11, 200
+    je _case200
+
+    ;przypadek inny
+    jmp _caseDefault
+
+_case100:
+    ;ab (rcx)
+    imul rcx, rdx
+
+    ;cd (r8)
+    imul r8, r9
+
+    ;ex (r10)
+    imul r10, r11
+
+    add rcx, r8
+    sub rcx, r10
+    mov rax, rcx
+
+    jmp _end
+
+_case200:
+    ;x jest używany 2 razy, użyj osobnego rejestru
+    mov r15, r11
+    ;LICZNIK
+    ;-1000x^2 (r11)
+    imul r15, r11
+    imul r15, -1000
+
+    ;500abc (rcx)
+    imul rcx, rdx
+    imul rcx, r8
+    imul rcx, 500
+
+    sub r15, rcx
+
+    ;MIANOWNIK
+    ;dex + 1 (r9)
+    imul r9, r10
+    imul r9, r11
+    inc r9
+
+    mov rax, r15
+    cqo
+    idiv r9
+
+    jmp _end
+
+_caseDefault:
+    jmp _end
+
+_end:
+    ret
+asm02 ENDP
+
+CPU@Podzielne
+;rcx <- int* v
+;edx <- uint n
+;rax -> int64 
+asm03 PROC
+    ;założenia
+    ;r10 - licznik elementów podzielnych przez 4
+    ;rsi - wskaźnik na tablicę v
+    ;r8 - licznik pętli i el. tablicy
+    ;rax - kolejny element
+    ;(rdx będzie wyk. do dzielenia)
+
+    ;stała 4
+    mov r15, 4
+
+    xor rax, rax
+    xor r10, r10
+    mov rsi, rcx
+    movsxd r8, edx
+
+_loop:
+    ;ładuj
+    mov eax, dword ptr [rsi + 4*r8 - 4] ;v[i]
+    movsxd rax, eax
+    cqo ; rozszerz rax do rdx:rax
+    idiv r15 ; podziel przez 4
+
+    cmp rdx, 0  ; sprawdź resztę
+    jnz _skip   ; reszta != 0, pomiń
+
+    inc r10
+
+_skip:
+
+    dec r8
+    jnz _loop
+;END _loop
+
+    mov rax, r10 ; przygotuj do zwrócenia
+    ret
+asm03 ENDP
+
+CPU@Mac@Przekatna 
+CPU@Mac@PonizejPrzekatnej 
+;rcx <- int** A
+;edx <- rows
+;r8d <- cols
+;rax -> void
+asm05 PROC
+    ;ZAŁOŻENIA
+    ;rcx - macierz A
+    ;rdx - licznik wierszy
+    ;r10 - licznik kolumn
+    ;r12 - następny element wiersza (wskaźnik)
+    ;r13/r13d - następny element (wartość)
+
+    movsxd rdx, edx
+    movsxd r8, r8d
+    mov r10, r8
+
+_rows:
+    ;ładuj wiersz (wskaźnik)
+    mov r12, qword ptr [rcx + 8*rdx - 8] ; A[i]
+
+    mov r10, r8 ; resetuj, następny wiersz
+    _cols:
+        ;ładuj wartość z wiersza (wartość)
+        mov r13d, dword ptr [r12 + 4*r10 - 4] ; A[i][j]
+
+        ;i > j
+        cmp rdx, r10
+        jg _wpisz
+        jmp _skip
+_wpisz:
+        mov r13d, 0 
+_skip:
+
+        ;zapisz
+        mov dword ptr [r12 + 4*r10 - 4], r13d ; A[i][j] <- 0 jeśli i > j
+
+        dec r10
+        jnz _cols
+    ;END _cols
+
+    dec rdx
+    jnz _rows
+;END _rows
+    ret
+asm05 ENDP
+
+FPU@Min 
+FPU@Max 
+;xmm0 <- float a
+;xmm1 <- float b
+;xmm2 <- float c
+;xmm0 -> double
+asm01 PROC a:dword, b:dword, c:dword
+local y:qword
+    movss a, xmm0
+    movss b, xmm1
+    movss c, xmm2
+
+
+    ;fpu
+    fld a       ;a
+    fld b       ;b, a
+    fld c       ;c, b, a
+
+    ;wierzchołek stosu - min(a, b, c)
+    fcomi st, st(1)      ;porównaj c i b
+    fcmovnbe st, st(1)   ;st <- st(1) jeśli c > b
+    fcomi st, st(2)      ;porównaj min(b, c) i a
+    fcmovnbe st, st(2)   ;st <- st(2) jeśli min(b, c) > a
+                         ;min(a, b, c), v1, v2
+    fstp y               ;v1, v2
+    fstp st              ;v2
+    fstp st              ;pusty stos
+
+    movsd xmm0, y
+
+    ret
+asm01 ENDP
+
+FPU@Log
+;xmm0 <- double a
+;xmm1 <- double x
+;xmm0 -> double
+asm05 PROC a:qword, x:qword
+local y:qword
+
+    movsd a, xmm0
+    movsd x, xmm1
+
+    ;fpu
+    ;log_x_(a) = log_2_(a)/log_2_(x)
+    
+    ;log_2_(x)
+    ;---------
+    ;log_2_(a)
+    
+    ;log_2_(x)
+    fld1        ; 1.0
+    fld x       ; x, 1.0
+    fyl2x       ; 1.0*log2(x)
+
+    ;log_2_(a)
+    fld1        ; 1.0,          1.0*log2(x)
+    fld a       ; a, 1.0,       1.0*log2(x)
+    fyl2x       ; 1.0*log2(a),  1.0*log2(x)
+
+    ;/
+    fdivr       ; log_2_(x)
+                ; ---------
+                ; log_2_(a)
+
+    fstp y      ; pusty stos
+
+    movsd xmm0, y
+    ret
+asm05 ENDP
+
+
+
+*/
