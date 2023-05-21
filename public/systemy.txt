@@ -1,0 +1,96 @@
+1
+@echo off
+setlocal enabledelayedexpansion
+
+set /p liczba1=Podaj pierwszą liczbę: 
+set /p liczba2=Podaj drugą liczbę: 
+set /p liczba3=Podaj trzecią liczbę: 
+
+set najmniejsza=%liczba1%
+if %liczba2% lss %najmniejsza% set najmniejsza=%liczba2%
+if %liczba3% lss %najmniejsza% set najmniejsza=%liczba3%
+
+echo Najmniejsza liczba: %najmniejsza%
+
+endlocal
+
+2# Znajdź procesy zawierające frazę "sys" w nazwie
+$procesy = Get-Process | Where-Object { $.Name -like "sys" }
+
+# Znajdź zmienne lokalne zawierające frazę "sys" w nazwie
+$zmienne = Get-Variable | Where-Object { $.Name -like "sys" }
+
+# Połącz procesy i zmienne w jedną tablicę
+$wynik = $procesy + $zmienne
+
+# Zapisz wynik do pliku "system.txt"
+$wynik | Out-File -FilePath "system.txt"
+
+3.# Wczytaj imię od użytkownika
+$imie = Read-Host "Podaj swoje imię"
+
+# Zlicz wystąpienia litery "a" w imieniu
+$liczbaLiterA = ($imie.ToLower() -split "a").Count - 1
+
+# Sprawdź, czy ostatnia litera to "a"
+$ostatniaLitera = $imie[-1]
+$ostatniaLiteraA = $ostatniaLitera -eq "a"
+
+# Wyświetl odpowiedni komunikat
+if ($ostatniaLiteraA) {
+    Write-Host "Witam panią $imie. W pani imieniu znajduje się $liczbaLiterA liter(a)."
+}
+else {
+    Write-Host "Witam pana $imie. W panu imieniu znajduje się $liczbaLiterA liter(a)."
+}
+
+4.#!/bin/bash
+
+# Pobierz liczbę od użytkownika
+read -p "Podaj liczbę: " liczba
+
+# Pobierz nazwę od użytkownika
+read -p "Podaj nazwę: " nazwa
+
+# Utwórz X folderów o nazwie zgodnej z wprowadzoną przez użytkownika
+for ((i=1; i<=liczba; i++))
+do
+    nazwa_folderu="$nazwa.$i"
+    mkdir "$nazwa_folderu"
+    chmod -R 444 "$nazwa_folderu"
+done
+5.
+#!/bin/bash
+
+# Pobierz nazwę pliku od użytkownika
+read -p "Podaj nazwę pliku: " nazwa_pliku
+
+# Pobierz numer zadania od użytkownika
+read -p "Podaj numer zadania (1-4): " numer_zadania
+
+# Sprawdź numer zadania i wykonaj odpowiednie zadanie
+case $numer_zadania in
+    1)
+        # Wyświetl liczbę wierszy w podanym pliku
+        liczba_wierszy=$(wc -l < "$nazwa_pliku")
+        echo "Liczba wierszy w pliku: $liczba_wierszy"
+        ;;
+    2)
+        # Wyświetl zawartość podanego pliku
+        cat "$nazwa_pliku"
+        ;;
+    3)
+        # Utwórz kopię podanego pliku dodając na koniec napis ".backup"
+        nowa_nazwa="${nazwa_pliku}.backup"
+        cp "$nazwa_pliku" "$nowa_nazwa"
+        echo "Utworzono kopię pliku: $nowa_nazwa"
+        ;;
+    4)
+        # Wyświetl komunikat o niepoprawnym numerze zadania
+        echo "Niepoprawny numer zadania"
+        ;;
+    *)
+        # Wyświetl komunikat o niepoprawnym numerze zadania
+        echo "Niepoprawny numer zadania"
+        ;;
+esac
