@@ -1,0 +1,1822 @@
+{
+    "record": [
+        {
+            "id": 1,
+            "question": "Co to jest oprogramowanie?",
+            "answers": [
+                "Oprogramowanie to programy komputerowe, cała związana z nim dokumentacja i dane konfiguracyjne.",
+                "Oprogramowanie to wyłącznie programy komputerowe bez żadnej dokumentacji i danych konfiguracyjnych.",
+                "Oprogramowanie to tylko dokumentacja związana z programami komputerowymi.",
+                " Oprogramowanie to dane konfiguracyjne i dokumentacja bez żadnych programów komputerowych."
+            ],
+            "explanation": "todo",
+            "correctAnswer": 0
+        },
+        {
+            "id": 2,
+            "question": "Jak można podzielić produkty oprogramowania w inżynierii oprogramowania?",
+            "answers": [
+                "Produkty oprogramowania w inżynierii oprogramowania można podzielić na powszechne - sprzedawane na wolnym rynku i dostosowane - wykonywane na zamówienie.",
+                "Produkty oprogramowania w inżynierii oprogramowania można podzielić na komercyjne i niekomercyjne.",
+                " Produkty oprogramowania w inżynierii oprogramowania można podzielić na otwarte i zamknięte.",
+                "Produkty oprogramowania w inżynierii oprogramowania można podzielić na drogie i tanie."
+            ],
+            "explanation": "todo",
+            "correctAnswer": 0
+        },
+        {
+            "id": 3,
+            "question": "Którego etapu nigdy nie ma w procesie wytwarzania oprogramowania?",
+            "answers": [
+                "W procesie wytwarzania oprogramowania nigdy nie występuje etap fizycznego konstruowania oprogramowania.",
+                " W procesie wytwarzania oprogramowania nigdy nie występuje etap testowania oprogramowania.",
+                "W procesie wytwarzania oprogramowania nigdy nie występuje etap specyfikacji oprogramowania.",
+                "W procesie wytwarzania oprogramowania nigdy nie występuje etap wdrożenia oprogramowania."
+            ],
+            "explanation": "todo",
+            "correctAnswer": 0
+        },
+        {
+            "id": 4,
+            "question": " Co oznacza zdolność do pielęgnacji w kontekście oprogramowania?",
+            "answers": [
+                "Zdolność do pielęgnacji jest cechą oprogramowania oznaczającą zdolność do ewolucji zgodnie z potrzebami klientów.",
+                "Zdolność do pielęgnacji oznacza zdolność oprogramowania do samonaprawy w przypadku błędów.",
+                "Zdolność do pielęgnacji to zdolność oprogramowania do automatycznego tworzenia nowych funkcji.",
+                "Zdolność do pielęgnacji oznacza zdolność oprogramowania do ochrony przed wirusami."
+            ],
+            "explanation": "todo",
+            "correctAnswer": 0
+        },
+        {
+            "id": 5,
+            "question": "Co oznacza niezawodność w kontekście oprogramowania?",
+            "answers": [
+                "Niezawodność jest cechą oprogramowania oznaczającą, że nie powinno powodować fizycznych lub ekonomicznych katastrof w przypadku awarii.",
+                "Niezawodność jest cechą oprogramowania oznaczającą zdolność do szybkiego działania.",
+                "Niezawodność jest cechą oprogramowania oznaczającą zdolność do działania bez dostępu do internetu.",
+                "Niezawodność jest cechą oprogramowania oznaczającą zdolność do przeprowadzania automatycznych aktualizacji."
+            ],
+            "explanation": "todo",
+            "correctAnswer": 0
+        },
+        {
+            "id": 6,
+            "question": "Co oznacza efektywność jako cecha oprogramowania?",
+            "answers": [
+                "Efektywność to cecha oprogramowania oznaczająca, że nie powinno marnować się zasobów systemu.",
+                "Efektywność jako cecha oprogramowania oznacza, że powinno ono działać bez żadnych błędów.",
+                "Efektywność jako cecha oprogramowania oznacza, że powinno ono mieć duże możliwości personalizacji.",
+                "Zła odpowiedź 3: Efektywność jako cecha oprogramowania oznacza, że powinno ono mieć intuicyjny i łatwy w obsłudze interfejs."
+            ],
+            "explanation": "todo",
+            "correctAnswer": 0
+        },
+        {
+            "id": 7,
+            "question": "Co to jest inżynieria oprogramowania?",
+            "answers": [
+                "Inżynieria oprogramowania to dziedzina inżynierii która obejmuje wszystkie aspekty tworzenia oprogramowania od fazy początkowej do jego pielęgnacji.",
+                "Inżynieria oprogramowania to proces tworzenia oprogramowania za pomocą języka programowania Java.",
+                "Inżynieria oprogramowania to dział informatyki zajmujący się tworzeniem struktur danych.",
+                "Inżynieria oprogramowania to nauka o tworzeniu gier komputerowych i symulacji."
+            ],
+            "explanation": "todo",
+            "correctAnswer": 0
+        },
+        {
+            "id": 8,
+            "question": "Co to jest proces tworzenia oprogramowania?",
+            "answers": [
+                "Proces tworzenia oprogramowania to zbiór czynności i związanych z nim wyników, które zmierzają do opracowania produktu programowego.",
+                "Proces tworzenia oprogramowania to zbiór czynności związanych z testowaniem oprogramowania.",
+                "Proces tworzenia oprogramowania to zbiór czynności związanych z instalacją oprogramowania na komputerach użytkowników.",
+                "Proces tworzenia oprogramowania to zbiór czynności związanych z tworzeniem dokumentacji technicznej."
+            ],
+            "explanation": "todo",
+            "correctAnswer": 0
+        },
+        {
+            "id": 9,
+            "question": "Jakie są czynności wspólne dla wszystkich procesów inżynierii oprogramowania?",
+            "answers": [
+                "Czynności wspólne dla wszystkich procesów inżynierii oprogramowania to specyfikacja oprogramowania, tworzenie oprogramowania, zatwierdzanie oprogramowania i ewolucja oprogramowania.",
+                "Czynności wspólne dla wszystkich procesów inżynierii oprogramowania to tworzenie oprogramowania, testowanie oprogramowania, instalacja oprogramowania i deinstalacja oprogramowania.",
+                "Czynności wspólne dla wszystkich procesów inżynierii oprogramowania to tworzenie oprogramowania, marketing oprogramowania, sprzedaż oprogramowania i wsparcie techniczne.",
+                "Czynności wspólne dla wszystkich procesów inżynierii oprogramowania to tworzenie oprogramowania, szkolenie użytkowników, utrzymanie oprogramowania i recykling oprogramowania."
+            ],
+            "explanation": "todo",
+            "correctAnswer": 0
+        },
+        {
+            "id": 10,
+            "question": "Co to jest model procesu tworzenia oprogramowania?",
+            "answers": [
+                "Model procesu tworzenia oprogramowania to uproszczona prezentacja procesu tworzenia oprogramowania. Modele ze swej natury są uproszczeniami.",
+                "Model procesu tworzenia oprogramowania to konkretna implementacja oprogramowania.",
+                "Model procesu tworzenia oprogramowania to zaawansowany algorytm używany do tworzenia oprogramowania.",
+                "Model procesu tworzenia oprogramowania to narzędzie do tworzenia interfejsu użytkownika."
+            ],
+            "explanation": "todo",
+            "correctAnswer": 0
+        },
+        {
+            "id": 11,
+            "question": "Co to jest model liniowy procesu tworzenia oprogramowania?",
+            "answers": [
+                "Model liniowy procesu tworzenia oprogramowania to model, w którym etapy tworzenia oprogramowania są wykonywane po kolei bez powrotów.",
+                "Model liniowy procesu tworzenia oprogramowania to model, w którym każdy etap tworzenia oprogramowania jest zależny od poprzedniego.",
+                "Model liniowy procesu tworzenia oprogramowania to model, w którym etapy tworzenia oprogramowania są wykonywane w dowolnej kolejności.",
+                "todo"
+            ],
+            "explanation": "todo",
+            "correctAnswer": 0
+        },
+        {
+            "id": 12,
+            "question": "Jaką wadą jest obarczony model kaskadowy?",
+            "answers": [
+                "Wadą modelu kaskadowego jest wysokie koszty błędów we wstępnych fazach, długa przerwa w kontaktach z klientem, oraz ścisła kolejność wykonywanych prac.",
+                "Wadą modelu kaskadowego jest zbyt duża elastyczność i brak zdefiniowanych etapów.",
+                "Model kaskadowy nie ma wad, jest idealnym modelem dla wszystkich projektów oprogramowania.",
+                "Wadą modelu kaskadowego jest brak możliwości tworzenia prototypów."
+            ],
+            "explanation": "todo",
+            "correctAnswer": 0
+        },
+        {
+            "id": 13,
+            "question": "Jakie są wady modelu opartego na prototypowaniu?",
+            "answers": [
+                "Wadami modelu opartego na prototypowaniu są dodatkowy koszt budowy prototypu oraz konieczność oczekiwania na końcowy system po akceptacji prototypu.",
+                "Wadą modelu opartego na prototypowaniu jest brak możliwości tworzenia prototypów.",
+                "Model oparty na prototypowaniu nie ma wad, jest idealnym modelem dla wszystkich projektów oprogramowania.",
+                "Wadą modelu opartego na prototypowaniu jest zbyt duża elastyczność, co może prowadzić do chaosu w projektowaniu."
+            ],
+            "explanation": "todo",
+            "correctAnswer": 0
+        },
+        {
+            "id": 14,
+            "question": "Jakie są zalety modelu opartego na prototypowaniu?",
+            "answers": [
+                "Zaletami modelu opartego na prototypowaniu są lepsze określenie wymagań klienta, szybsza demonstracja pracującej wersji systemu oraz możliwość szkoleń zanim zostanie zbudowany pełny system.",
+                "Zaletą modelu opartego na prototypowaniu jest brak konieczności budowania prototypów.",
+                "Zaletą modelu opartego na prototypowaniu jest zwiększenie kosztów i czasu realizacji projektu.",
+                "Model oparty na prototypowaniu nie ma zalet, jest mniej efektywny niż inne modele."
+            ],
+            "explanation": "todo",
+            "correctAnswer": 0
+        },
+        {
+            "id": 15,
+            "question": "Czym jest skrót CASE w inżynierii oprogramowania?",
+            "answers": [
+                "Skrót CASE w inżynierii oprogramowania oznacza programy wykorzystywane do wspomagania czynności procesu tworzenia oprogramowania.",
+                "Skrót CASE w inżynierii oprogramowania oznacza skomplikowane algorytmy sortowania i ekstrakcji danych.",
+                "Skrót CASE w inżynierii oprogramowania oznacza komputerowe narzędzia do automatycznego testowania oprogramowania.",
+                "Skrót CASE w inżynierii oprogramowania oznacza proces tworzenia dokumentacji technicznej dla oprogramowania."
+            ],
+            "explanation": "todo",
+            "correctAnswer": 0
+        },
+        {
+            "id": 16,
+            "question": "Co to są wymagania stawiane systemowi komputerowemu?",
+            "answers": [
+                "Wymagania stawiane systemowi komputerowemu to opis usług i ograniczeń.",
+                "Wymagania stawiane systemowi komputerowemu to lista używanych technologii i narzędzi.",
+                "Wymagania stawiane systemowi komputerowemu to dokumentacja użytkownika.",
+                "Wymagania stawiane systemowi komputerowemu to kosztorys projektu."
+            ],
+            "explanation": "todo",
+            "correctAnswer": 0
+        },
+        {
+            "id": 17,
+            "question": "Czym jest proces inżynierii wymagań?",
+            "answers": [
+                "Proces inżynierii wymagań to wynajdowanie, analizowanie, dokumentowanie.",
+                " Proces inżynierii wymagań to proces tworzenia oprogramowania.",
+                "Proces inżynierii wymagań to proces testowania oprogramowania.",
+                "Proces inżynierii wymagań to proces zarządzania projektem."
+            ],
+            "explanation": "todo",
+            "correctAnswer": 0
+        },
+        {
+            "id": 18,
+            "question": "Co to są wymagania użytkownika?",
+            "answers": [
+                "Wymagania użytkownika to wyrażenia w języku naturalnym oraz diagramy o usługach oczekiwanych od systemu oraz o ograniczeniach.",
+                "Wymagania użytkownika to lista używanych technologii i narzędzi.",
+                "Wymagania użytkownika to opis interfejsu użytkownika.",
+                "Wymagania użytkownika to zbiór testów akceptacyjnych."
+            ],
+            "explanation": "todo",
+            "correctAnswer": 0
+        },
+        {
+            "id": 19,
+            "question": "Co to są wymagania systemowe?",
+            "answers": [
+                "Wymagania systemowe szczegółowo ustalają usługi systemu i ograniczenia. Dokumentacja wymagań systemowych zwana czasem specyfikacją funkcjonalną powinna być precyzyjna.",
+                "Wymagania systemowe to opis interfejsu użytkownika.",
+                "Wymagania systemowe to specyfikacja techniczna sprzętu komputerowego.",
+                "Wymagania systemowe to wymagania dotyczące języków programowania używanych w projekcie."
+            ],
+            "explanation": "todo",
+            "correctAnswer": 0
+        },
+        {
+            "id": 20,
+            "question": "Czym jest specyfikacja projektu?",
+            "answers": [
+                "Specyfikacja projektu to abstrakcyjny opis projektu oprogramowania, który jest podstawą bardziej szczegółowego projektu i implementacji.",
+                "Specyfikacja projektu to lista członków zespołu projektowego.",
+                "Specyfikacja projektu to harmonogram projektu z określeniem terminów i zadań.",
+                "Specyfikacja projektu to dokument zawierający analizę kosztów projektu."
+            ],
+            "explanation": "todo",
+            "correctAnswer": 0
+        },
+        {
+            "id": 21,
+            "question": "Co oznaczają wymagania funkcjonalne?",
+            "answers": [
+                "Wymagania funkcjonalne określają, jakie usługi ma oferować system, jak ma reagować na określone dane wejściowe, oraz jak ma się zachowywać w określonych sytuacjach.",
+                "Wymagania funkcjonalne to ograniczenia technologiczne systemu, takie jak język programowania, używane.",
+                "Wymagania funkcjonalne to specyfikacja sprzętu na którym system ma działać.",
+                "Wymagania funkcjonalne to standardy, które system powinien spełniać."
+            ],
+            "explanation": "todo",
+            "correctAnswer": 0
+        },
+        {
+            "id": 22,
+            "question": "Co to są wymagania niefunkcjonalne?",
+            "answers": [
+                "Wymagania niefunkcjonalne to ograniczenia usług i funkcji systemu. Obejmują czasowe ograniczenia dotyczące procesu tworzenia, standardy.",
+                "Wymagania niefunkcjonalne to wydajność systemu w terminach szybkości przetwarzania.",
+                "Wymagania niefunkcjonalne to zdolność systemu do interakcji z innymi systemami.",
+                "Wymagania niefunkcjonalne to lista funkcji, które system powinien wykonywać."
+            ],
+            "explanation": "todo",
+            "correctAnswer": 0
+        },
+        {
+            "id": 23,
+            "question": "Co to są wymagania dziedzinowe?",
+            "answers": [
+                "Wymagania dziedzinowe pochodzą od dziedziny zastosowań systemu, odzwierciedlają jej charakterystykę. Mogą być funkcjonalne lub niefunkcjonalne.",
+                "Wymagania dziedzinowe to wymagania dotyczące specyficznej branży lub sektora, w którym system będzie używany.",
+                "Wymagania dziedzinowe to wymagania dotyczące wiedzy specjalistycznej, jaką musi posiadać zespół projektowy.",
+                "Wymagania dziedzinowe to wymagania dotyczące danych, które system musi przetwarzać."
+            ],
+            "explanation": "todo",
+            "correctAnswer": 0
+        },
+        {
+            "id": 24,
+            "question": "Jakie są typy wymagań niefunkcjonalnych?",
+            "answers": [
+                "Typy wymagań niefunkcjonalnych to wymagania produktowe (określają zachowanie produktu), wymagania organizacyjne (wynikają ze strategii i procedur w firmie klienta), i wymagania zewnętrzne.",
+                " Typy wymagań niefunkcjonalnych to wymagania technologiczne, wymagania dotyczące danych i wymagania dotyczące zasobów.",
+                "Typy wymagań niefunkcjonalnych to wymagania dotyczące dokumentacji, wymagania dotyczące testowania i wymagania dotyczące przeglądów kodu.",
+                "Typy wymagań niefunkcjonalnych to wymagania dotyczące implementacji, wymagania dotyczące zarządzania projektem i wymagania dotyczące szkolenia użytkowników."
+            ],
+            "explanation": "todo",
+            "correctAnswer": 0
+        },
+        {
+            "id": 25,
+            "question": "Kto jest uczestnikiem w analizie wymagań?",
+            "answers": [
+                "Uczestnikiem w analizie wymagań jest osoba, która będzie pracować z systemem oraz osoby na które system będzie miał wpływ. Uczestnik powinien mieć bezpośredni i pośredni wpływ na wymagania systemowe.",
+                "Uczestnik w analizie wymagań to tylko osoba, która projektuje system.",
+                "Uczestnik w analizie wymagań to osoba, która zarządza projektem.",
+                "Uczestnik w analizie wymagań to osoba, która testuje system."
+            ],
+            "explanation": "todo",
+            "correctAnswer": 0
+        },
+        {
+            "id": 26,
+            "question": "Na co odpowiada studium wykonalności?",
+            "answers": [
+                "Studium wykonalności odpowiada na pytania: czy system przyczyni się do realizacji celów przedsiębiorstwa, czy system może być zaimplementowany z użyciem dostępnych technologii w ramach ustalonego budżetu i ograniczeń czasowych, oraz czy system może być zintegrowany z istniejącymi systemami, które już zainstalowano.",
+                "Studium wykonalności odpowiada na pytania: jakie technologie są potrzebne do implementacji systemu, jakie są koszty implementacji i jak długo potrwa implementacja.",
+                "Studium wykonalności odpowiada na pytania: kto będzie używać systemu, jakie są wymagania systemu i jakie są wymagania użytkowników.",
+                "Studium wykonalności odpowiada na pytania: jaki jest cel systemu, jaki jest zakres systemu i jakie są oczekiwane korzyści z systemu."
+            ],
+            "explanation": "todo",
+            "correctAnswer": 0
+        },
+        {
+            "id": 27,
+            "question": "Co oznacza skrót UML w inżynierii oprogramowania?",
+            "answers": [
+                "UML w inżynierii oprogramowania oznacza Unified Modeling Language (ujednolicony język modelowania), który jest współdzielony przez wielu pracowników i służy do opisu projektu modelu",
+                "UML w inżynierii oprogramowania oznacza Unified Management Language, język służący do zarządzania projektami oprogramowania.",
+                "UML w inżynierii oprogramowania oznacza Universal Markup Language, język do tworzenia struktury dokumentów oprogramowania.",
+                "UML w inżynierii oprogramowania oznacza Unstructured Machine Language, język do tworzenia nieustrukturyzowanego kodu maszynowego."
+            ],
+            "explanation": "todo",
+            "correctAnswer": 0
+        },
+        {
+            "id": 28,
+            "question": "Jak powstał UML?",
+            "answers": [
+                "UML powstał w wyniku wspólnych prac trzech amigos: Grady Booch (OOAD - Object-Oriented Analysis and Design), Ivar Jacobson (OOSE - Object-Oriented Software Engineering) i James Rumbaugh (OMT - Object Modeling Technique).",
+                "UML powstał jako rezultat prac organizacji IEEE.",
+                "UML powstał jako rezultat projektu realizowanego przez grupę studentów MIT.",
+                "UML powstał jako rezultat współpracy firm Google i Microsoft."
+            ],
+            "explanation": "todo",
+            "correctAnswer": 0
+        },
+        {
+            "id": 29,
+            "question": "Jakie widoki modelu można wyróżnić w UML?",
+            "answers": [
+                "W UML można wyróżnić następujące widoki modelu: logiczny, procesu, fizyczny, konstrukcji oraz przypadków użycia (zawiera wszystkie wyżej wymienione).",
+                "W UML można wyróżnić następujące widoki modelu: matematyczny, programistyczny, użytkownika i sieciowy.",
+                "W UML można wyróżnić następujące widoki modelu: strukturalny, behawioralny i komunikacyjny.",
+                "W UML można wyróżnić następujące widoki modelu: widok danych, widok procesów, widok wydajności."
+            ],
+            "explanation": "todo",
+            "correctAnswer": 0
+        },
+        {
+            "id": 30,
+            "question": "Jakie ogólne podziały diagramów można znaleźć w UML?",
+            "answers": [
+                "Diagramy UML można ogólnie podzielić na dynamiczne i statyczne.",
+                "Diagramy UML można ogólnie podzielić na sekwencyjne i konkurencyjne.",
+                "Diagramy UML można ogólnie podzielić na hierarchiczne i płaskie.",
+                "Diagramy UML można ogólnie podzielić na abstrakcyjne i konkretyzujące."
+            ],
+            "explanation": "todo",
+            "correctAnswer": 0
+        },
+        {
+            "id": 31,
+            "question": "Jakie są elementy składowe UML?",
+            "answers": [
+                "Elementami składowymi UML są: elementy, związki, diagramy.",
+                "Elementami składowymi UML są: obiekty, klasy, interfejsy.",
+                "Elementami składowymi UML są: procesy, systemy, operacje.",
+                "Elementami składowymi UML są: funkcje, zmienne, struktury."
+            ],
+            "explanation": "todo",
+            "correctAnswer": 0
+        },
+        {
+            "id": 32,
+            "question": "Czym jest stereotyp w UML i jak jest symbolizowany?",
+            "answers": [
+                "Stereotyp w UML sygnalizuje specjalne użycie, np. ludzik oznacza KLIENTA.",
+                "Stereotyp w UML jest to szczególny typ klasy, symbolizowany za pomocą ikony książki.",
+                "Stereotyp w UML to specyficzna relacja między klasami, symbolizowana strzałką.",
+                "Stereotyp w UML to specjalny sposób reprezentacji obiektów, symbolizowany ikoną komputera."
+            ],
+            "explanation": "todo",
+            "correctAnswer": 0
+        },
+        {
+            "id": 33,
+            "question": "Jakiego rodzaju wymaganiom odpowiada przypadek użycia?",
+            "answers": [
+                "Przypadek użycia odpowiada wymaganiom funkcjonalnym.",
+                "Przypadek użycia odpowiada wymaganiom niefunkcjonalnym.",
+                "Przypadek użycia odpowiada wymaganiom dziedzinowym.",
+                "Przypadek użycia odpowiada wymaganiom bezpieczeństwa."
+            ],
+            "explanation": "todo",
+            "correctAnswer": 0
+        },
+        {
+            "id": 34,
+            "question": "Czym jest przypadek użycia?",
+            "answers": [
+                "Przypadek użycia to kompletne wykorzystanie systemu, które składa się z interakcji użytkownika z systemem i rezultaty powinien mieć zdefiniowane kryteria powodzenia i niepowodzenia.",
+                "Przypadek użycia to opis poszczególnych funkcji systemu.",
+                "Przypadek użycia to diagram przedstawiający relacje między obiektami systemu.",
+                "Przypadek użycia to zbiór testów sprawdzających funkcjonalność systemu."
+            ],
+            "explanation": "todo",
+            "correctAnswer": 0
+        },
+        {
+            "id": 35,
+            "question": "Jak należy traktować aktorów w modelowaniu wymagań?",
+            "answers": [
+                "Aktorów należy traktować jako nierzeczywistych ludzi, mogą być czarnymi skrzynkami. Aktorzy muszą współdziałać z systemem.",
+                "Aktorów należy traktować jako konkretne osoby w organizacji klienta.",
+                "Aktorów należy traktować jako programy komputerowe współpracujące z systemem.",
+                "Aktorów należy traktować jako dowolne elementy interfejsu użytkownika."
+            ],
+            "explanation": "todo",
+            "correctAnswer": 0
+        },
+        {
+            "id": 36,
+            "question": "Jaki związek może zachodzić między aktorami na diagramie przypadków użycia?",
+            "answers": [
+                "Na diagramie przypadków użycia między aktorami może zachodzić związek uogólnienia, inaczej generalizacja lub dziedziczenie, co powoduje hierarchizację aktorów.",
+                "Na diagramie przypadków użycia aktorzy są zawsze niezależni i nie mają ze sobą żadnych relacji.",
+                "Na diagramie przypadków użycia między aktorami zachodzi relacja typu \"include\".",
+                "Na diagramie przypadków użycia między aktorami zachodzi relacja typu \"extend\"."
+            ],
+            "explanation": "todo",
+            "correctAnswer": 0
+        },
+        {
+            "id": 37,
+            "question": "Co oznacza linia komunikacji na diagramie przypadków użycia?",
+            "answers": [
+                "Linia komunikacji na diagramie przypadków użycia oznacza komunikację między aktorem a przypadkiem użycia.",
+                "Linia komunikacji na diagramie przypadków użycia oznacza relację dziedziczenia między aktorami.",
+                "Linia komunikacji na diagramie przypadków użycia oznacza sekwencję działań przypadku użycia.",
+                "Linia komunikacji na diagramie przypadków użycia oznacza poziom priorytetu przypadku użycia."
+            ],
+            "explanation": "todo",
+            "correctAnswer": 0
+        },
+        {
+            "id": 38,
+            "question": "Jakie relacje mogą zachodzić pomiędzy przypadkami użycia?",
+            "answers": [
+                "Pomiędzy przypadkami użycia mogą zachodzić relacje: A<<include>> B -przypadek A wielokrotnie używa przypadku B i A<<extend>>B - przypadek A czasami używa przypadku B.",
+                "Pomiędzy przypadkami użycia zachodzą tylko relacje typu \"generalizacja\" lub \"dziedziczenie\".",
+                "Pomiędzy przypadkami użycia nie zachodzą żadne relacje. Każdy przypadek użycia jest niezależny.",
+                " Pomiędzy przypadkami użycia zachodzą relacje typu \"asocjacja\" lub \"agregacja\"."
+            ],
+            "explanation": "todo",
+            "correctAnswer": 0
+        },
+        {
+            "id": 39,
+            "question": "Co umożliwia diagram czynności UML?",
+            "answers": [
+                "Diagram czynności UML umożliwia pokazanie w jaki sposób system osiąga zamierzone cele.",
+                "Diagram czynności UML umożliwia przedstawienie struktury klas w systemie.",
+                "Diagram czynności UML umożliwia modelowanie relacji między aktorami w systemie.",
+                "Diagram czynności UML umożliwia przedstawienie kolejności interakcji pomiędzy uczestnikami."
+            ],
+            "explanation": "todo",
+            "correctAnswer": 0
+        },
+        {
+            "id": 40,
+            "question": "Co jest pokazane na diagramie czynności UML?",
+            "answers": [
+                "Na diagramie czynności UML pokazane są interakcje z zewnętrznymi uczestnikami.",
+                "Na diagramie czynności UML pokazane są klasy i ich metody.",
+                "Na diagramie czynności UML pokazane są przypadki użycia i ich relacje.",
+                "Na diagramie czynności UML pokazane są relacje między aktorami."
+            ],
+            "explanation": "todo",
+            "correctAnswer": 0
+        },
+        {
+            "id": 41,
+            "question": "Co umożliwia diagram sekwencji UML?",
+            "answers": [
+                "Diagram sekwencji UML umożliwia przedstawienie kolejności interakcji pomiędzy uczestnikami.",
+                "Diagram sekwencji UML umożliwia pokazanie struktury klas w systemie.",
+                "Diagram sekwencji UML umożliwia modelowanie relacji między aktorami w systemie.",
+                "Diagram sekwencji UML umożliwia pokazanie, w jaki sposób system osiąga zamierzone cele."
+            ],
+            "explanation": "todo",
+            "correctAnswer": 0
+        },
+        {
+            "id": 42,
+            "question": "Co posiada każdy uczestnik na diagramie sekwencji UML?",
+            "answers": [
+                "Każdy uczestnik na diagramie sekwencji UML posiada linię życia.",
+                "Każdy uczestnik na diagramie sekwencji UML posiada atrybuty i metody.",
+                "Każdy uczestnik na diagramie sekwencji UML posiada diagram stanów.",
+                "Każdy uczestnik na diagramie sekwencji UML posiada przypadki użycia."
+            ],
+            "explanation": "todo",
+            "correctAnswer": 0
+        },
+        {
+            "id": 43,
+            "question": "Czym jest wywołanie metody danego uczestnika w kontekście diagramu sekwencji UML?",
+            "answers": [
+                "Wywołanie metody danego uczestnika to wysłanie komunikatu.",
+                "Wywołanie metody danego uczestnika to stworzenie nowego obiektu.",
+                "Wywołanie metody danego uczestnika to zakończenie działania obiektu.",
+                "Wywołanie metody danego uczestnika to zmiana stanu obiektu."
+            ],
+            "explanation": "todo",
+            "correctAnswer": 0
+        },
+        {
+            "id": 44,
+            "question": "Co powoduje wysłanie komunikatu synchronicznego w kontekście diagramu sekwencji UML?",
+            "answers": [
+                "Wysłanie komunikatu synchronicznego powoduje, że obiekt wysyłający oczekuje na komunikat zwrotny, by ponownie wysłać komunikat.",
+                "Wysłanie komunikatu synchronicznego powoduje, że obiekt wysyłający kontynuuje działanie, nie oczekując na odpowiedź.",
+                "Wysłanie komunikatu synchronicznego powoduje, że obiekt odbierający musi natychmiast odpowiedzieć.",
+                "Wysłanie komunikatu synchronicznego powoduje utworzenie nowego obiektu."
+            ],
+            "explanation": "todo",
+            "correctAnswer": 0
+        },
+        {
+            "id": 45,
+            "question": "Co powoduje wysłanie komunikatu asynchronicznego na diagramie sekwencji UML?",
+            "answers": [
+                "Wysłanie komunikatu asynchronicznego powoduje, że komunikat powraca z wywołania procedury, może być pomijany.",
+                "Wysłanie komunikatu asynchronicznego powoduje, że obiekt wysyłający musi czekać na odpowiedź zanim wyśle kolejny komunikat.",
+                "Wysłanie komunikatu asynchronicznego powoduje, że obiekt wysyłający zaczyna nową linię życia.",
+                "Wysłanie komunikatu asynchronicznego powoduje, że obiekt wysyłający natychmiast otrzymuje komunikat zwrotny."
+            ],
+            "explanation": "todo",
+            "correctAnswer": 0
+        },
+        {
+            "id": 46,
+            "question": "Czym jest stan obiektu klasy w kontekście diagramu klas UML?",
+            "answers": [
+                "Stan obiektu klasy to atrybut klasy (dane).",
+                " Stan obiektu klasy to zbiór operacji, które może wykonać.",
+                "Stan obiektu klasy to jego lokalizacja w systemie.",
+                "Stan obiektu klasy to czas, w którym obiekt został utworzony."
+            ],
+            "explanation": "todo",
+            "correctAnswer": 0
+        },
+        {
+            "id": 47,
+            "question": "Czym jest zachowanie klasy w kontekście diagramu klas UML?",
+            "answers": [
+                "Zachowanie klasy to operacje jakie klasa może wykonać.",
+                "Zachowanie klasy to atrybuty, które posiada.",
+                "Zachowanie klasy to czas istnienia klasy w systemie.",
+                "Zachowanie klasy to miejsce, w którym klasa jest przechowywana w pamięci."
+            ],
+            "explanation": "todo",
+            "correctAnswer": 0
+        },
+        {
+            "id": 48,
+            "question": "Co prezentuje diagram klas UML?",
+            "answers": [
+                "Diagram klas prezentuje typy obiektów w programie.",
+                "Diagram klas prezentuje interakcje pomiędzy obiektami.",
+                "Diagram klas prezentuje sekwencję działania programu.",
+                "Diagram klas prezentuje zasoby systemowe wykorzystane przez program."
+            ],
+            "explanation": "todo",
+            "correctAnswer": 0
+        },
+        {
+            "id": 49,
+            "question": "Jak nazywa się instancja danej klasy?",
+            "answers": [
+                "Instancją danej klasy nazywamy obiekt danej klasy.",
+                "Instancją danej klasy nazywamy atrybut danej klasy.",
+                "Instancją danej klasy nazywamy klasę pochodną.",
+                "Instancją danej klasy nazywamy metody danej klasy."
+            ],
+            "explanation": "todo",
+            "correctAnswer": 0
+        },
+        {
+            "id": 50,
+            "question": "Hermetyzacja umożliwia:",
+            "answers": [
+                "ukrywanie szczegółów implementacji klasy",
+                "przyspieszanie działania klasy",
+                "zwiększanie dostępu do klasy",
+                "tworzenie nowych klas"
+            ],
+            "explanation": "todo",
+            "correctAnswer": 0
+        },
+        {
+            "id": 51,
+            "question": "Hermetyzacja oznacza, że:",
+            "answers": [
+                "obiekt powinien zawierać dane i instrukcje",
+                "obiekt powinien zawierać tylko dane",
+                "obiekt powinien zawierać tylko instrukcje",
+                "obiekt nie powinien zawierać danych ani instrukcji"
+            ],
+            "explanation": "todo",
+            "correctAnswer": 0
+        },
+        {
+            "id": 52,
+            "question": "W UML klasa reprezentowana jest przez:",
+            "answers": [
+                "prostokąt z nazwą klasy oraz opcjonalnie jej atrybuty oraz operacje (metody)",
+                "koło z nazwą klasy",
+                "kwadrat z nazwą klasy",
+                "trójkąt z nazwą klasy"
+            ],
+            "explanation": "todo",
+            "correctAnswer": 0
+        },
+        {
+            "id": 53,
+            "question": "Publiczny poziom dostępu do elementu klasy oznacza, że:",
+            "answers": [
+                " elementy danej klasy są widoczne dla każdego",
+                " elementy danej klasy są widoczne tylko dla klasy",
+                "elementy danej klasy są widoczne tylko dla klas, które z niej dziedziczą",
+                "elementy danej klasy są niewidoczne"
+            ],
+            "explanation": "todo",
+            "correctAnswer": 0
+        },
+        {
+            "id": 54,
+            "question": "Chroniony poziom dostępu do elementu klasy oznacza, że:",
+            "answers": [
+                "elementy danej klasy są widoczne dla swojej klasy i klas które po niej dziedziczą",
+                "elementy danej klasy są widoczne dla każdego",
+                " elementy danej klasy są widoczne tylko dla klasy",
+                "elementy danej klasy są niewidoczne"
+            ],
+            "explanation": "todo",
+            "correctAnswer": 0
+        },
+        {
+            "id": 55,
+            "question": "Prywatny poziom dostępu do elementu klasy oznacza, że:",
+            "answers": [
+                "elementy danej klasy są widoczne tylko w swojej klasie",
+                "elementy danej klasy są widoczne dla każdego",
+                "elementy danej klasy są widoczne tylko dla klas, które z niej dziedziczą",
+                "elementy danej klasy są widoczne dla swojej klasy i klas które po niej dziedziczą"
+            ],
+            "explanation": "todo",
+            "correctAnswer": 0
+        },
+        {
+            "id": 56,
+            "question": "Poziomy dostępu wymienione od najmniej restrykcyjnego do najbardziej restrykcyjnego poziomu to:",
+            "answers": [
+                "publiczny - chroniony- pakietowy-prywatny",
+                "prywatny-chroniony-pakietowy-publiczny",
+                "chroniony-pakietowy-prywatny-publiczny",
+                "pakietowy-prywatny-publiczny-chroniony"
+            ],
+            "explanation": "todo",
+            "correctAnswer": 0
+        },
+        {
+            "id": 57,
+            "question": "Poziomu dostępu wymienione od najbardziej restrykcyjnego do najmniej restrykcyjnego poziomu:",
+            "answers": [
+                "prywatny-pakietowy-chroniony-publiczny",
+                "publiczny - chroniony- pakietowy-prywatny",
+                "chroniony-pakietowy-prywatny-publiczny",
+                "pakietowy-prywatny-publiczny-chroniony"
+            ],
+            "explanation": "todo",
+            "correctAnswer": 0
+        },
+        {
+            "id": 58,
+            "question": "Liczebność w oznaczeniu związku 1..* przy danej klasie oznacza, że:",
+            "answers": [
+                "obiekt klasy X może przechowywać od 1 do nieskończonej liczby obiektów klasy Y w kontenerze",
+                "obiekt klasy X może przechowywać tylko jeden obiekt klasy Y",
+                "obiekt klasy X nie może przechowywać żadnego obiektu klasy Y",
+                "obiekt klasy X może przechowywać dokładnie n obiektów klasy Y"
+            ],
+            "explanation": "todo",
+            "correctAnswer": 0
+        },
+        {
+            "id": 59,
+            "question": "+addEntry(): void jako opis operacji klasy oznacza, że:",
+            "answers": [
+                "publiczny poziom dostępu do metody addEntry bez parametru i zwraca tym VOID",
+                "prywatny poziom dostępu do metody addEntry bez parametru i zwraca tym VOID",
+                "chroniony poziom dostępu do metody addEntry bez parametru i zwraca tym VOID",
+                "publiczny poziom dostępu do metody addEntry z jednym parametrem i zwraca tym VOID"
+            ],
+            "explanation": "todo",
+            "correctAnswer": 0
+        },
+        {
+            "id": 60,
+            "question": "Związki pomiędzy klasami od najsłabszego do najsilniejszego:",
+            "answers": [
+                "zależność-asocjacja-agregacja-kompozycja-dziedziczenie(generalizacja)",
+                "dziedziczenie(generalizacja)-kompozycja- agregacja-asocjacja-zależność",
+                "asocjacja-agregacja-kompozycja-dziedziczenie(generalizacja)-zależność",
+                "agregacja-kompozycja-dziedziczenie(generalizacja)-asocjacja-zależność"
+            ],
+            "explanation": "todo",
+            "correctAnswer": 0
+        },
+        {
+            "id": 61,
+            "question": "Związki pomiędzy klasami od najsilniejszego do najsłabszego:",
+            "answers": [
+                "dziedziczenie(generalizacja)-kompozycja- agregacja-asocjacja-zależność",
+                "zależność-asocjacja-agregacja-kompozycja-dziedziczenie(generalizacja)",
+                "agregacja-kompozycja-dziedziczenie(generalizacja)-asocjacja-zależność",
+                "asocjacja-agregacja-kompozycja-dziedziczenie(generalizacja)-zależność"
+            ],
+            "explanation": "todo",
+            "correctAnswer": 0
+        },
+        {
+            "id": 62,
+            "question": "Związek zależności oznacza, że:",
+            "answers": [
+                "gdy obiekty jednej klasy działają wykorzystując przelotnie obiekty innej klasy",
+                "gdy obiekty jednej klasy działają wykorzystując obiekty innej klasy przez dłuższą chwile",
+                "gdy klasa zawiera obiekty innej",
+                "jedna klasa jest rodzajem innej"
+            ],
+            "explanation": "todo",
+            "correctAnswer": 0
+        },
+        {
+            "id": 63,
+            "question": "Związek asocjacji oznacza, że:",
+            "answers": [
+                "gdy obiekty jednej klasy działają wykorzystując obiekty innej klasy przez dłuższą chwile",
+                "gdy obiekty jednej klasy działają wykorzystując przelotnie obiekty innej klasy",
+                "gdy klasa zawiera obiekty innej",
+                "jedna klasa jest rodzajem innej"
+            ],
+            "explanation": "todo",
+            "correctAnswer": 0
+        },
+        {
+            "id": 64,
+            "question": "Związek agregacji oznacza, że:",
+            "answers": [
+                "klasa zawiera, ale jednocześnie współdzieli odwołanie do obiektów innej klasy",
+                "gdy obiekty jednej klasy działają wykorzystując przelotnie obiekty innej klasy",
+                "gdy obiekty jednej klasy działają wykorzystując obiekty innej klasy przez dłuższą chwile",
+                "jedna klasa jest rodzajem innej"
+            ],
+            "explanation": "todo",
+            "correctAnswer": 0
+        },
+        {
+            "id": 65,
+            "question": "Związek kompozycji oznacza, że:",
+            "answers": [
+                "klasa zawiera obiekty innej",
+                "klasa zawiera, ale jednocześnie współdzieli odwołanie do obiektów innej klasy",
+                "gdy obiekty jednej klasy działają wykorzystując obiekty innej klasy przez dłuższą chwile",
+                " jedna klasa jest rodzajem innej"
+            ],
+            "explanation": "todo",
+            "correctAnswer": 0
+        },
+        {
+            "id": 66,
+            "question": "Związek dziedziczenia oznacza, że:",
+            "answers": [
+                "jedna klasa jest rodzajem innej",
+                "gdy obiekty jednej klasy działają wykorzystując obiekty innej klasy przez dłuższą chwile",
+                " klasa zawiera, ale jednocześnie współdzieli odwołanie do obiektów innej klasy",
+                "klasa zawiera obiekty innej"
+            ],
+            "explanation": "todo",
+            "correctAnswer": 0
+        },
+        {
+            "id": 67,
+            "question": "Klasa abstrakcyjna to:",
+            "answers": [
+                "klasa która nie ma swoich obiektów",
+                "klasa, która ma swoje obiekty",
+                "klasa, która jest rodzajem innej klasy",
+                " klasa, która zawiera obiekty innej klasy"
+            ],
+            "explanation": "todo",
+            "correctAnswer": 0
+        },
+        {
+            "id": 68,
+            "question": "Wyrażenie 'zmienna <> 2' w języku OCL oznacza:",
+            "answers": [
+                " zmienna ma wartość różną od 2",
+                " zmienna ma wartość równą 2",
+                "zmienna jest większa niż 2",
+                "zmienna jest mniejsza niż 2"
+            ],
+            "explanation": "todo",
+            "correctAnswer": 0
+        },
+        {
+            "id": 69,
+            "question": "Ograniczenie 'pre:x>0' nałożone na metodę 'f(x:int): int' oznacza:",
+            "answers": [
+                "parametr x funkcji f musi być większy od 0",
+                "parametr x funkcji f musi być mniejszy od 0",
+                "parametr x funkcji f musi być równy 0",
+                "parametr x funkcji f może być dowolną liczbą całkowitą"
+            ],
+            "explanation": "todo",
+            "correctAnswer": 0
+        },
+        {
+            "id": 70,
+            "question": "Na diagramie obiektów UML przedstawia się:",
+            "answers": [
+                "instancje obiektów i połączenie między nimi",
+                "tylko instancje obiektów",
+                "tylko połączenia między obiektami",
+                "klasę, która zawiera obiekty innej klasy"
+            ],
+            "explanation": "todo",
+            "correctAnswer": 0
+        },
+        {
+            "id": 71,
+            "question": "Dwa obiekty na diagramie obiektów mogą być połączone ze sobą, gdy:",
+            "answers": [
+                "występuje asocjacja lub agregacja",
+                "występuje tylko asocjacja",
+                "występuje tylko agregacja",
+                "nie występuje żadna asocjacja lub agregacja"
+            ],
+            "explanation": "todo",
+            "correctAnswer": 0
+        },
+        {
+            "id": 72,
+            "question": "Port w języku UML służy do:",
+            "answers": [
+                "komunikacji obiektów z otoczeniem, porty używane są do grupowania podobnych interfejsów",
+                "zapewnienia komunikacji tylko wewnętrznej między obiektami",
+                "tworzenia diagramów sekwencji",
+                "definiowania zależności między obiektami"
+            ],
+            "explanation": "todo",
+            "correctAnswer": 0
+        },
+        {
+            "id": 73,
+            "question": "Komponent to:",
+            "answers": [
+                "hermetyzowana, możliwa do powtórnego użycia część oprogramowania",
+                "dowolny element oprogramowania, który nie może być używany ponownie",
+                " element oprogramowania, który nie jest hermetyzowany",
+                "tylko niewielka część oprogramowania, która jest trudna do ponownego użycia"
+            ],
+            "explanation": "todo",
+            "correctAnswer": 0
+        },
+        {
+            "id": 74,
+            "question": "Diagram komponentów UML umożliwia:",
+            "answers": [
+                "łatwe modelowanie architektury systemu",
+                "trudne modelowanie architektury systemu",
+                "modelowanie tylko interfejsów systemu",
+                "modelowanie tylko obiektów systemu"
+            ],
+            "explanation": "todo",
+            "correctAnswer": 0
+        },
+        {
+            "id": 75,
+            "question": "Pakiety w języku UML służą do:",
+            "answers": [
+                "łączą w grupy elementy które są podobne, mogą grupować podobne przypadki użycia",
+                "grupowania elementów, które są różne",
+                "tworzenia diagramów stanów",
+                "definiowania interfejsów użytkownika"
+            ],
+            "explanation": "todo",
+            "correctAnswer": 0
+        },
+        {
+            "id": 76,
+            "question": "Na diagramach komunikacji UML przedstawia się:",
+            "answers": [
+                "połączenia wymagane do przekazania komunikatów",
+                "strukturę klas systemu",
+                "interfejsy użytkownika",
+                "diagramy stanów obiektów"
+            ],
+            "explanation": "todo",
+            "correctAnswer": 0
+        },
+        {
+            "id": 77,
+            "question": "Kolejność wywołania komunikatów na diagramach komunikacji UML jest odczytywana dzięki:",
+            "answers": [
+                "numeracji komunikatów",
+                "osi czasu",
+                "kolorom komunikatów",
+                "wielkości komunikatów"
+            ],
+            "explanation": "todo",
+            "correctAnswer": 0
+        },
+        {
+            "id": 78,
+            "question": "Kolejność wywołania komunikatów na diagramach sekwencji UML jest odczytywana dzięki:",
+            "answers": [
+                "osi czasu",
+                "numeracji komunikatów",
+                "kolorom komunikatów",
+                "wielkości komunikatów"
+            ],
+            "explanation": "todo",
+            "correctAnswer": 0
+        },
+        {
+            "id": 79,
+            "question": "Diagram maszyny stanowej UML przedstawia:",
+            "answers": [
+                "stan obiektu i zachodzące w nim zmiany",
+                "strukturę klas systemu",
+                " interfejsy użytkownika",
+                "zależności czasowe"
+            ],
+            "explanation": "todo",
+            "correctAnswer": 0
+        },
+        {
+            "id": 80,
+            "question": "Charakterystyczną cechą diagramu czasowego UML jest:",
+            "answers": [
+                "ukazują zależności czasowe, przedstawiają widok procesu",
+                "przedstawiają strukturę klas systemu",
+                "ukazują interfejsy użytkownika",
+                "przedstawiają diagramy stanów obiektów"
+            ],
+            "explanation": "todo",
+            "correctAnswer": 0
+        },
+        {
+            "id": 81,
+            "question": "Na przeglądowym diagramie interakcji UML znaleźć się mogą:",
+            "answers": [
+                "Na przeglądowym diagramie interakcji w UML mogą znaleźć się diagram czynności, diagram interakcji, diagram komunikacji i diagram czasowy.",
+                "Na przeglądowym diagramie interakcji w UML mogą znaleźć się jedynie diagramy czynności.",
+                "Na przeglądowym diagramie interakcji w UML mogą znaleźć się jedynie diagramy komunikacji.",
+                "Na przeglądowym diagramie interakcji w UML mogą znaleźć się jedynie diagramy czasowe."
+            ],
+            "explanation": "todo",
+            "correctAnswer": 0
+        },
+        {
+            "id": 82,
+            "question": "Na diagramie maszyny stanowej UML zmiana stanu obiektu spowodowana jest:",
+            "answers": [
+                "użyciem wyzwalacza",
+                "zmianą czasu",
+                "działaniem użytkownika",
+                "zmianą parametrów systemu"
+            ],
+            "explanation": "todo",
+            "correctAnswer": 0
+        },
+        {
+            "id": 83,
+            "question": "Stan nieaktywny na diagramie stanów UML to:",
+            "answers": [
+                "obiekt z którego wychodzimy",
+                "obiekt, który jest aktualnie aktywny",
+                "obiekt, który nie jest używany",
+                "obiekt, który jest usunięty"
+            ],
+            "explanation": "todo",
+            "correctAnswer": 0
+        },
+        {
+            "id": 84,
+            "question": "Diagram wdrożenia UML przedstawia:",
+            "answers": [
+                "widok fizyczny, jak wdrażane są programy na sprzęcie",
+                "relacje między klasami",
+                "stan obiektu i zmiany zachodzące w nim",
+                "strukturę hierarchiczną systemu"
+            ],
+            "explanation": "todo",
+            "correctAnswer": 0
+        },
+        {
+            "id": 85,
+            "question": "Artefakty na diagramie wdrożenia UML to:",
+            "answers": [
+                "pliki ",
+                "interfejsy użytkownika",
+                "instancje obiektów",
+                "klasy i ich relacje"
+            ],
+            "explanation": "todo",
+            "correctAnswer": 0
+        },
+        {
+            "id": 86,
+            "question": "Węzły na diagramie wdrożenia UML to:",
+            "answers": [
+                "programowy lub sprzętowy zasób, który może zawierać oprogramowanie lub powiązane z nim pliki",
+                "połączenia między klasami",
+                "zależności między obiektami",
+                "ścieżki przepływu danych"
+            ],
+            "explanation": "todo",
+            "correctAnswer": 0
+        },
+        {
+            "id": 87,
+            "question": "Pomiędzy węzłami na diagramie wdrożenia UML może zachodzić:",
+            "answers": [
+                "komunikacja ",
+                "dziedziczenie",
+                "agregacja",
+                "instancjonowanie obiektów"
+            ],
+            "explanation": "todo",
+            "correctAnswer": 0
+        },
+        {
+            "id": 88,
+            "question": "W modelowaniu CRC taka cecha klasy jak materialność oznacza:",
+            "answers": [
+                "w klasie istnieje obiekt potrafiący wykonać zadanie",
+                " w klasie istnieją tylko obiekty abstrakcyjne",
+                "klasa nie posiada konkretnych instancji",
+                "klasa posiada atrybuty, ale nie posiada metod"
+            ],
+            "explanation": "todo",
+            "correctAnswer": 0
+        },
+        {
+            "id": 89,
+            "question": "W modelowaniu CRC taka cecha klasy jak inkluzywność oznacza:",
+            "answers": [
+                "że klasa jest atomowa, jeśli nie zawiera ona innych klas oraz połączeń",
+                " klasa zawiera obiekty innych klas",
+                "klasa jest częścią większej całości",
+                "klasa nie ma żadnych zależności"
+            ],
+            "explanation": "todo",
+            "correctAnswer": 0
+        },
+        {
+            "id": 90,
+            "question": "W modelowaniu CRC taka cecha klasy jak sekwencyjność oznacza:",
+            "answers": [
+                "nie można przeskakiwać o kilka zadań, trzeba je wykonywać po kolei",
+                "zadania mogą być wykonane w dowolnej kolejności",
+                " zadania są wykonywane równocześnie",
+                "kolejność zadań jest losowa"
+            ],
+            "explanation": "todo",
+            "correctAnswer": 0
+        },
+        {
+            "id": 91,
+            "question": "W modelowaniu CRC taka cecha klasy jak trwałość oznacza:",
+            "answers": [
+                "zawartość się nie zmienia",
+                "zawartość klasy może być modyfikowana",
+                "zawartość klasy jest usuwana po zakończeniu pracy",
+                "zawartość klasy jest zmienna i zależy od kontekstu"
+            ],
+            "explanation": "todo",
+            "correctAnswer": 0
+        },
+        {
+            "id": 92,
+            "question": "W modelowaniu CRC taka cecha klasy jak integralność oznacza:",
+            "answers": [
+                "że klasę można wykorzystać w przyszłości do innych celów",
+                "klasa musi być używana tylko do jednego, określonego celu",
+                "integralność oznacza, że klasa jest całością i nie może być podzielona na mniejsze elementy",
+                "integralność oznacza, że klasa musi być kompletna i zawierać wszystkie potrzebne atrybuty i metody"
+            ],
+            "explanation": "todo",
+            "correctAnswer": 0
+        },
+        {
+            "id": 93,
+            "question": "Architektura systemu komputerowego określa:",
+            "answers": [
+                "strukturę połączeń jego składników programowych , widoczne cechy tych składników i połączenia jakie między nimi zachodzą",
+                "jedynie fizyczne komponenty systemu komputerowego",
+                "tylko układ komponentów programowych, nie uwzględniając ich połączeń",
+                "tylko sposób, w jaki komponenty są ze sobą połączone, nie uwzględniając ich indywidualnych cech"
+            ],
+            "explanation": "todo",
+            "correctAnswer": 0
+        },
+        {
+            "id": 94,
+            "question": "Architektura warstwowa systemu oznacza, że:",
+            "answers": [
+                "całość aplikacji jest wykonywana w ramach jednego systemu operacyjnego lub zbioru zasobów , komponenty mogą komunikować się ze sobą na zasadzie każdy z każdym z pominięciem warstw",
+                " różne warstwy aplikacji są wykonywane na różnych systemach operacyjnych",
+                "każdy komponent może komunikować się z każdym innym, niezależnie od warstwy",
+                "warstwy są tylko teoretycznym podziałem, nie mają wpływu na funkcjonowanie systemu"
+            ],
+            "explanation": "todo",
+            "correctAnswer": 0
+        },
+        {
+            "id": 95,
+            "question": "Architektura obiektowa systemu oznacza, że:",
+            "answers": [
+                "Model obiektowy architektury systemu dzieli system na zbiór luźno uzależnionych od siebie obiektów z dobrze zdefiniowanymi interfejsami. Obiekty korzystają z usług oferowanych przez inne obiekty. Podział obiektowy uwzględnia klasy obiektów, ich atrybuty i operacje.",
+                "System jest zbudowany wyłącznie z obiektów, które nie mają żadnych interfejsów.",
+                "Architektura obiektowa nie pozwala na korzystanie z usług oferowanych przez inne obiekty.",
+                "Architektura obiektowa nie uwzględnia klas obiektów, ich atrybutów i operacji."
+            ],
+            "explanation": "todo",
+            "correctAnswer": 0
+        },
+        {
+            "id": 96,
+            "question": "Architektura systemu oparta na przepływie danych oznacza, że:",
+            "answers": [
+                "wykorzystuje się do modelowania funkcji pod kątem przekazywania danych między procesami i innymi obiektami. Pozwalają zaznaczyć w modelu, na wielu poziomach szczegółowości, obecność rozpoznanych funkcji użytkowych oraz z jakich danych korzysta każda z wprowadzonych na diagram funkcji. Diagramy przepływu danych to narzędzie analizy i projektowania systemów, zwłaszcza w odniesieniu do systemów transakcyjnych",
+                "Architektura ta ignoruje przekazywanie danych między procesami i innymi obiektami.",
+                "Nie zaznacza się w modelu obecności rozpoznanych funkcji użytkowych.",
+                "Diagramy przepływu danych nie są używane do analizy i projektowania systemów."
+            ],
+            "explanation": "todo",
+            "correctAnswer": 0
+        },
+        {
+            "id": 97,
+            "question": "Architektura wywołań i powrotów oznacza, że:",
+            "answers": [
+                "w modelu podprogramów sterowanie zaczyna się od wierzchołka hierarchii podprogramów i poprzez odwołania podprogramów przechodzi do niższych poziomów drzewa",
+                "Sterowanie zaczyna się od najniższego poziomu hierarchii podprogramów.",
+                "Odwołania podprogramów nie prowadzą do niższych poziomów drzewa.",
+                "Sterowanie jest losowe, nie zaczyna się od żadnego konkretnego punktu."
+            ],
+            "explanation": "todo",
+            "correctAnswer": 0
+        },
+        {
+            "id": 98,
+            "question": "Na jakie kategorie dzieli się wzorce projektowe w inżynierii oprogramowania?",
+            "answers": [
+                "w zależności od tego, co robią i ich zakresu.",
+                "dzieli się tylko na kreacyjne.",
+                " w zależności od używanych języków programowania.",
+                "nie są dzielone na kategorie."
+            ],
+            "explanation": "todo",
+            "correctAnswer": 0
+        },
+        {
+            "id": 99,
+            "question": "Jakie są rodzaje wzorców projektowych w inżynierii oprogramowania?",
+            "answers": [
+                "kreacyjne, strukturalne, czynnościowe a pod kątem zakresu na klasowe i obiektowe.",
+                "kreacyjne i strukturalne.",
+                "obiektowe.",
+                "nie ma różnych typów."
+            ],
+            "explanation": "todo",
+            "correctAnswer": 0
+        },
+        {
+            "id": 100,
+            "question": "Do czego służy wzorzec projektowy Adapter?",
+            "answers": [
+                "przekształcenie interfejsu klasy na taki, jakiego klienci oczekują.",
+                "tworzenia wielu instancji tej samej klasy.",
+                "tworzenia hierarchii klas.",
+                "obsługi błędów i wyjątków w programie."
+            ],
+            "explanation": "todo",
+            "correctAnswer": 0
+        },
+        {
+            "id": 101,
+            "question": "Kto jest uczestnikiem wzorca projektowego Adapter?",
+            "answers": [
+                "cel, klient, adaptowany i adapter.",
+                "klient i adapter.",
+                "obserwator, obserwator konkretny, obserwowany i obserwowany konkrenty.",
+                "klient i cel."
+            ],
+            "explanation": "todo",
+            "correctAnswer": 0
+        },
+        {
+            "id": 102,
+            "question": "Jakie jest przeznaczenie wzorca projektowego Obserwator?",
+            "answers": [
+                "sytuacja, gdy jeden obiekt klasy zmienia stan, wszystkie pozostałe obiekty odeń zależne powinny być automatycznie aktualizowane.",
+                "służy do tworzenia interfejsu klasy na taki, jakiego klienci oczekują.",
+                "jest przeznaczony do tworzenia hierarchii klas.",
+                "służy do obsługi błędów i wyjątków w programie."
+            ],
+            "explanation": "todo",
+            "correctAnswer": 0
+        },
+        {
+            "id": 103,
+            "question": " Kto jest uczestnikiem wzorca projektowego Obserwator?",
+            "answers": [
+                "obserwator, obserwator konkretny, obserwowany i obserwowany konkrenty.",
+                "obserwator i obserwowany.",
+                " cel, klient, adaptowany i adapter.",
+                "obserwator i obserwator konkretny."
+            ],
+            "explanation": "todo",
+            "correctAnswer": 0
+        },
+        {
+            "id": 104,
+            "question": "Do czego służy wzorzec projektowy Strategia?",
+            "answers": [
+                "umożliwienie zmiany algorytmu niezależnie od użytkujących go klientów.",
+                "przekształcenia interfejsu klasy na taki, jakiego klienci oczekują.",
+                "automatycznego aktualizowania obiektów zależnych od zmieniającego się stanu innego obiektu.",
+                "obsługi błędów i wyjątków w programie."
+            ],
+            "explanation": "todo",
+            "correctAnswer": 0
+        },
+        {
+            "id": 105,
+            "question": "Kto jest uczestnikiem wzorca projektowego Strategia?",
+            "answers": [
+                "kontekst, strategia i strategiaKonkretna.",
+                "strategia i strategiaKonkretna.",
+                "cel, klient, adaptowany i adapter.",
+                "kontekst i strategia."
+            ],
+            "explanation": "todo",
+            "correctAnswer": 0
+        },
+        {
+            "id": 106,
+            "question": "Do czego służy wzorzec projektowy Kompozyt?",
+            "answers": [
+                "składanie obiektów w struktury drzewiaste, reprezentujące hierarchię typu część-całość.",
+                "przekształcenia interfejsu klasy na taki, jakiego klienci oczekują.",
+                "umożliwienia zmiany algorytmu niezależnie od użytkujących go klientów.",
+                "obsługi błędów i wyjątków w programie."
+            ],
+            "explanation": "todo",
+            "correctAnswer": 0
+        },
+        {
+            "id": 107,
+            "question": "Kto jest uczestnikiem wzorca projektowego Kompozyt?",
+            "answers": [
+                "kompozyt, klient, komponent i lisc.",
+                "kompozyt i komponent.",
+                "kontekst, strategia i strategiaKonkretna.",
+                "kompozyt i klient."
+            ],
+            "explanation": "todo",
+            "correctAnswer": 0
+        },
+        {
+            "id": 108,
+            "question": "Do czego służy wzorzec projektowy Iterator?",
+            "answers": [
+                "zapewnienie sekwencyjnego dostępu do elementów obiektu zagregowanego bez ujawniania jego reprezentacji wewnętrznej.",
+                "przekształcenia interfejsu klasy na taki, jakiego klienci oczekują.",
+                "składania obiektów w struktury drzewiaste, reprezentujące hierarchię typu część-całość.",
+                "obsługi błędów i wyjątków w programie."
+            ],
+            "explanation": "todo",
+            "correctAnswer": 0
+        },
+        {
+            "id": 109,
+            "question": "Kto jest uczestnikiem wzorca projektowego Iterator?",
+            "answers": [
+                "iterator,agregat, iterator konkretny i agregat konkretny.",
+                "iterator i agregat.",
+                "kompozyt, klient, komponent i klient.",
+                "iterator i iterator konkretny."
+            ],
+            "explanation": "todo",
+            "correctAnswer": 0
+        },
+        {
+            "id": 110,
+            "question": "Jakie jest przeznaczenie wzorca projektowego Singleton?",
+            "answers": [
+                "Zapewnia, że klasa ma tylko jeden egzemplarz i zapewnia globalny dostęp do niego.",
+                "Zapewnia podział obiektów na elementy i kontenery.",
+                "Umożliwia dynamiczną zmianę zachowania obiektu po utworzeniu.",
+                "Zapewnia stworzenie tylko jednej instancji klasy w całym programie, ale nie gwarantuje globalnego dostępu."
+            ],
+            "explanation": "todo",
+            "correctAnswer": 0
+        },
+        {
+            "id": 111,
+            "question": "Kto jest uczestnikiem wzorca projektowego Singleton?",
+            "answers": [
+                "Singleton.",
+                "Obserwator.",
+                "Kompozyt.",
+                "Mediator."
+            ],
+            "explanation": "todo",
+            "correctAnswer": 0
+        },
+        {
+            "id": 112,
+            "question": "Jakie jest przeznaczenie wzorca projektowego Fabryka abstrakcyjna?",
+            "answers": [
+                "Udostępnia interfejs do tworzenia rodzin powiązanych ze sobą lub zależnych od siebie obiektów bez określania ich klas konkretnej.",
+                "Zapewnia interfejs do tworzenia dowolnego obiektu bez określania jego konkretnej klasy.",
+                "Umożliwia opóźnienie decyzji o konkretnej klasie obiektu do momentu, gdy jest on faktycznie tworzony.",
+                "Udostępnia interfejs do tworzenia obiektów tylko jednej rodziny."
+            ],
+            "explanation": "todo",
+            "correctAnswer": 0
+        },
+        {
+            "id": 113,
+            "question": "Kto jest uczestnikiem wzorca projektowego Fabryka abstrakcyjna?",
+            "answers": [
+                "Abstrakcyjna Fabryka, Konkretna Fabryka, Abstrakcyjny Produkt, Konkretny Produkt, Klient.",
+                "Singleton, Obserwator, Mediator, Kompozyt.",
+                "Fabryka, Produkt, Klient, Mediator.",
+                "Abstrakcyjna Fabryka, Konkretna Fabryka, Produkt."
+            ],
+            "explanation": "todo",
+            "correctAnswer": 0
+        },
+        {
+            "id": 114,
+            "question": "Jakie jest przeznaczenie wzorca projektowego Metoda wytwórcza?",
+            "answers": [
+                "Określenie interfejsu do tworzenia obiektów, przy czym umożliwia podklasom wyznaczanie klasy danego obiektu. Umożliwia klasom przekazanie procesu tworzenia egzemplarzy podklasom.",
+                "Udostępnia interfejs do tworzenia rodzin powiązanych ze sobą lub zależnych od siebie obiektów bez określania ich klas konkretnej.",
+                "Udostępnia interfejs do tworzenia dowolnego obiektu bez określania jego konkretnej klasy.",
+                "Tworzy jedną instancję klasy i gwarantuje, że nie ma innych."
+            ],
+            "explanation": "todo",
+            "correctAnswer": 0
+        },
+        {
+            "id": 115,
+            "question": "Kto jest uczestnikiem wzorca projektowego Metoda wytwórcza?",
+            "answers": [
+                "Produkt, Konkretny Produkt, Kreator, Konkretny Kreator.",
+                "Singleton, Obserwator, Mediator, Kompozyt.",
+                "Kreator, Produkt, Klient, Mediator.",
+                "Kreator, Konkretny Kreator, Produkt."
+            ],
+            "explanation": "todo",
+            "correctAnswer": 0
+        },
+        {
+            "id": 116,
+            "question": "Do jakiej grupy wzorców zalicza się Model-Widok-Kontroler?",
+            "answers": [
+                "Architektonicznych.",
+                "Kreacyjnych.",
+                "Strukturalnych.",
+                "Behawioralnych."
+            ],
+            "explanation": "todo",
+            "correctAnswer": 0
+        },
+        {
+            "id": 117,
+            "question": "Jakie wzorce wykorzystuje się we wzorcu Model-Widok-Kontroler?",
+            "answers": [
+                "Architektury.",
+                "Kreacyjne.",
+                "Strukturalne.",
+                "Behawioralne."
+            ],
+            "explanation": "todo",
+            "correctAnswer": 0
+        },
+        {
+            "id": 118,
+            "question": "Co charakteryzuje dobry test?",
+            "answers": [
+                "Z dużym prawdopodobieństwem pozwala znaleźć błąd wcześniej nie wykryty.",
+                "Sprawdza tylko poprawność kodu.",
+                "Koncentruje się wyłącznie na dużych funkcjach systemu.",
+                "Pomija testowanie niektórych skomplikowanych przypadków."
+            ],
+            "explanation": "todo",
+            "correctAnswer": 0
+        },
+        {
+            "id": 119,
+            "question": "Na czym polega istota testowania oprogramowania?",
+            "answers": [
+                "Wykrywanie błędów. Operatywność; obserwowalność; sterowność; podzielność; prostota; stabilność; zrozumiałość.",
+                "Pisaniu kodu bez błędów.",
+                "Stworzenie oprogramowania bez potrzeby testowania.",
+                " Zapewnienie, że oprogramowanie działa poprawnie tylko na jednym urządzeniu."
+            ],
+            "explanation": "todo",
+            "correctAnswer": 0
+        },
+        {
+            "id": 120,
+            "question": "Na czym polega weryfikacja systemu?",
+            "answers": [
+                "Sprawdzenie, czy system został zbudowany dobrze.",
+                "Sprawdzenie, czy system działa poprawnie na różnych urządzeniach.",
+                "Sprawdzenie, czy kod programu jest napisany zgodnie z konwencjami.",
+                "Sprawdzenie, czy system działa bez błędów."
+            ],
+            "explanation": "todo",
+            "correctAnswer": 0
+        },
+        {
+            "id": 121,
+            "question": "Na czym polega walidacja systemu?",
+            "answers": [
+                "Sprawdzenie, czy zbudowany został dobry system.",
+                " Sprawdzenie, czy zbudowany został system bez błędów.",
+                "Sprawdzenie, czy zbudowany system działa poprawnie na wszystkich urządzeniach.",
+                "Sprawdzenie, czy zbudowany system jest kompatybilny z wszystkimi systemami operacyjnymi."
+            ],
+            "explanation": "todo",
+            "correctAnswer": 0
+        },
+        {
+            "id": 122,
+            "question": "Co oznacza statyczna weryfikacja systemu?",
+            "answers": [
+                "estowanie przed uruchomieniem systemu. Związane z analizą statycznej reprezentacji systemu w celu wykrycia błędów.",
+                "Testowanie systemu po jego uruchomieniu.",
+                "Testowanie systemu pod kątem wydajności.",
+                "Testowanie systemu w celu znalezienia błędów syntaktycznych."
+            ],
+            "explanation": "todo",
+            "correctAnswer": 0
+        },
+        {
+            "id": 123,
+            "question": "Co oznacza aksjomat antyekstensjonalności?",
+            "answers": [
+                "Zestaw testów pokrywający jedną implementację danej specyfikacji nie musi pokrywać jej innej implementacji. Dwie klasy mogą być takie same, ale mogą różnić się metodami i test może być mylny.",
+                "Zestaw testów musi pokrywać wszystkie implementacje danej specyfikacji.",
+                "Zestaw testów musi pokrywać tylko jedną implementację danej specyfikacji.",
+                "Zestaw testów musi pokrywać wszystkie klasy, niezależnie od ich różnic."
+            ],
+            "explanation": "todo",
+            "correctAnswer": 0
+        },
+        {
+            "id": 124,
+            "question": "Co oznacza aksjomat antydekompozycji?",
+            "answers": [
+                "Zestaw testów z których każdy osobno jest adekwatny dla segmentów w module, zawsze są odpowiednie dla modułu jako całości.",
+                "Zestaw testów, które są adekwatne dla segmentów w module, mogą nie być odpowiednie dla modułu jako całości.",
+                " Zestaw testów, które są adekwatne dla segmentów w module, nie są nigdy odpowiednie dla modułu jako całości.",
+                "Zestaw testów, które są adekwatne dla segmentów w module, są odpowiednie tylko dla tych segmentów, nie dla modułu jako całości."
+            ],
+            "explanation": "todo",
+            "correctAnswer": 0
+        },
+        {
+            "id": 125,
+            "question": "Co oznacza aksjomat antykompozycji?",
+            "answers": [
+                "Zestaw testów z których każdy osobno jest adekwatny dla segmentów w module, niekoniecznie są odpowiednie dla modułu jako całości.",
+                "Zestaw testów, które są adekwatne dla segmentów w module, są zawsze odpowiednie dla modułu jako całości.",
+                "Zestaw testów, które są adekwatne dla segmentów w module, są nigdy nie są odpowiednie dla modułu jako całości.",
+                "Zestaw testów, które są adekwatne dla segmentów w module, są odpowiednie tylko dla tych segmentów, nie dla modułu jako całości."
+            ],
+            "explanation": "todo",
+            "correctAnswer": 0
+        },
+        {
+            "id": 126,
+            "question": "Co oznacza analiza pokrycia kodu, pokrycia instrukcji?",
+            "answers": [
+                "Każda instrukcja jest sprawdzana.",
+                "Tylko wybrane instrukcje są sprawdzane.",
+                "Instrukcje są sprawdzane tylko wtedy, gdy są powiązane z błędem.",
+                "Instrukcje są sprawdzane tylko pod kątem ich poprawności syntaktycznej."
+            ],
+            "explanation": "todo",
+            "correctAnswer": 0
+        },
+        {
+            "id": 127,
+            "question": "Co oznacza analiza pokrycia kodu, pokrycia gałęzi?",
+            "answers": [
+                "Każda gałąź jest odwiedzana, czyli instrukcja warunkowa musi być testowana naprawdę i fałsz.",
+                "Tylko niektóre gałęzie są odwiedzane w procesie testowania.",
+                "Gałęzie są odwiedzane tylko wtedy, gdy są powiązane z błędem.",
+                "Gałęzie są odwiedzane tylko pod kątem poprawności składniowej, a nie ich funkcjonalności."
+            ],
+            "explanation": "todo",
+            "correctAnswer": 0
+        },
+        {
+            "id": 128,
+            "question": "Co oznacza testowanie regresyjne?",
+            "answers": [
+                "Ponowne wykonanie opracowanych wcześniej testów.",
+                "Wykonanie testów tylko na nowych funkcjach lub modułach.",
+                "Wykonanie testów tylko na funkcjach lub modułach, które wcześniej zawiodły.",
+                "Wykonanie testów na całym systemie bez względu na to, czy były one wcześniej wykonane."
+            ],
+            "explanation": "todo",
+            "correctAnswer": 0
+        },
+        {
+            "id": 129,
+            "question": "Co oznaczają testy białej skrzynki?",
+            "answers": [
+                "Testowanie wewnętrznej struktury programu (white box testing), testy jednostkowe oraz integracyjne.",
+                "Testowanie tylko interfejsu użytkownika programu.",
+                "Testowanie programu bez względu na jego wewnętrzną strukturę.",
+                "Testowanie programu tylko pod kątem błędów syntaktycznych, a nie funkcjonalności."
+            ],
+            "explanation": "todo",
+            "correctAnswer": 0
+        },
+        {
+            "id": 130,
+            "question": "Co oznaczają testy czarnej skrzynki?",
+            "answers": [
+                "Nie biorą pod uwagę wewnętrznej struktury programu, wszystkie rodzaje testowania.",
+                "Skupiają się wyłącznie na testowaniu wewnętrznej struktury programu.",
+                "Wykonują testy jedynie na nowo dodanych funkcjach lub modułach.",
+                "Ograniczają testowanie do interfejsu użytkownika programu."
+            ],
+            "explanation": "todo",
+            "correctAnswer": 0
+        },
+        {
+            "id": 131,
+            "question": "Na czym polegają inspekcje oprogramowania?",
+            "answers": [
+                "Przeglądaniu źródłowej reprezentacji systemu i szukaniu błędów. Sprawdzane są artefakty celem wykrycia anomalii.",
+                "Sprawdzanie jedynie składni kodu źródłowego.",
+                "Skupianie się na wydajności i efektywności kodu.",
+                " Inspekcje ograniczają się do sprawdzania dokumentacji oprogramowania."
+            ],
+            "explanation": "todo",
+            "correctAnswer": 0
+        },
+        {
+            "id": 132,
+            "question": "Co oznacza proces pre-processingu testu?",
+            "answers": [
+                "Że system jest ustawiany w stan testu.",
+                "Pre-processing to oczyszczanie danych wejściowych przed ich wprowadzeniem do systemu.",
+                "Pre-processing to wstępna ocena efektywności testów.",
+                "Pre-processing to proces kompilacji kodu źródłowego przed uruchomieniem testów."
+            ],
+            "explanation": "todo",
+            "correctAnswer": 0
+        },
+        {
+            "id": 133,
+            "question": "Co oznacza proces post-processingu testu?",
+            "answers": [
+                "System jest przywracany do użytkowania po testowaniu, trwa sprzątanie w systemie.",
+                "Post-processing to etap tworzenia raportu z wyników testów.",
+                "Post-processing to proces aktualizacji dokumentacji po testowaniu.",
+                "Post-processing to proces reagowania na błędy znalezione podczas testowania."
+            ],
+            "explanation": "todo",
+            "correctAnswer": 0
+        },
+        {
+            "id": 134,
+            "question": "Co umożliwia makro CPPUNIT_ASSERT_EQUAL(a, b) z biblioteki CppUnit?",
+            "answers": [
+                "Testowanie czy A jest równe B.",
+                "Sprawdza czy A jest większe niż B.",
+                "Sprawdza czy A jest mniejsze niż B.",
+                "Sprawdza czy A i B są różne."
+            ],
+            "explanation": "todo",
+            "correctAnswer": 0
+        },
+        {
+            "id": 135,
+            "question": "Co umożliwia makro CPPUNIT_ASSERT(a) z biblioteki CppUnit?",
+            "answers": [
+                "Testowanie warunku A, jeśli warunek A nie jest spełniony, to test nie jest zaliczony.",
+                "Sprawdza czy wartość A jest różna od zera.",
+                "Sprawdza czy wartość A jest niepusta.",
+                "Sprawdza czy wartość A istnieje."
+            ],
+            "explanation": "todo",
+            "correctAnswer": 0
+        },
+        {
+            "id": 136,
+            "question": "Co umożliwia makro CPPUNIT_ASSERT_THROW(a, b) z biblioteki CppUnit?",
+            "answers": [
+                "Testowanie parametru A, jeśli dla wyrażenia A zostanie zgłoszony wyjątek B to test zostanie zaliczony.",
+                "Sprawdza, czy wyjątek B jest zgłoszony bez wyrażenia A.",
+                "Sprawdza, czy wyrażenie A zgłasza jakikolwiek wyjątek, niekoniecznie B.",
+                "Sprawdza, czy wyrażenie A zgłasza wyjątek B tylko wtedy, gdy B jest niepuste."
+            ],
+            "explanation": "todo",
+            "correctAnswer": 0
+        },
+        {
+            "id": 137,
+            "question": "Co należy uwzględnić podczas pisania testów jednostkowych?",
+            "answers": [
+                "Unikać wpisywania na sztywno ścieżek dostępu do zasobów, uniezależnić testy od czasu, lokalizacji, wprowadzić obsługę wyjątków, zakładać, że przypadki testowe są wykonywane w dowolnej kolejności, unikać pisania przypadków testowych z efektami ubocznymi, testować prywatne metody.",
+                "Tworzyć testy, które zależą od czasu i lokalizacji.",
+                " Ignorować obsługę wyjątków podczas tworzenia testów.",
+                "Zakładać, że przypadki testowe muszą być wykonywane w określonej kolejności."
+            ],
+            "explanation": "todo",
+            "correctAnswer": 0
+        },
+        {
+            "id": 138,
+            "question": "Jak ustalić stan systemu przed wykonaniem każdego testu za pomocą biblioteki CppUnit?",
+            "answers": [
+                "Za pomocą funkcji setUp().",
+                "Za pomocą funkcji setDown().",
+                "Za pomocą funkcji setUpTest().",
+                "Za pomocą funkcji setTestUp()."
+            ],
+            "explanation": "todo",
+            "correctAnswer": 0
+        },
+        {
+            "id": 139,
+            "question": " Co oznacza syndrom LOOP?",
+            "answers": [
+                "System został źle zrobiony: L-late(późno), O- over budget(przekroczony budżet), O-overtime (nadgodziny), P- poor quality (słaba jakość).",
+                "System został dobrze zrobiony: L-late(późno), O- over budget(przekroczony budżet), O-overtime (nadgodziny), P- poor quality (słaba jakość).",
+                "Syndrom LOOP oznacza, że system jest szybki, ekonomiczny, efektywny i wysokiej jakości.",
+                "Syndrom LOOP jest syndromem, który dotyczy tylko programistów, a nie systemu."
+            ],
+            "explanation": "todo",
+            "correctAnswer": 0
+        },
+        {
+            "id": 140,
+            "question": "Czym jest proces CMM?",
+            "answers": [
+                "Procesem służącym ocenie procesu wytwórczego służącego do produkcji oprogramowania. CMM ocenia praktyki stosowane podczas produkcji. Model ocenia proces w skali pięciostopniowej.",
+                "Jest to proces służący do produkcji oprogramowania bez żadnej oceny.",
+                "Jest to proces, który ocenia tylko wynik końcowy, a nie praktyki stosowane podczas produkcji.",
+                "Jest to proces, który ocenia proces w skali jednostopniowej."
+            ],
+            "explanation": "todo",
+            "correctAnswer": 0
+        },
+        {
+            "id": 141,
+            "question": "Czym jest Programowanie Ekstremalne?",
+            "answers": [
+                "To lekka metodyka rozwoju oprogramowania stworzona w 1990 roku przez Kenta Becka.",
+                "To metodyka rozwoju oprogramowania oparta na tworzeniu najbardziej skomplikowanych rozwiązań.",
+                "To metodyka rozwoju oprogramowania stworzona w 2010 roku przez Jeffa Sutherlanda.",
+                "To metodyka rozwoju oprogramowania, która polega na programowaniu bez przerw."
+            ],
+            "explanation": "todo",
+            "correctAnswer": 0
+        },
+        {
+            "id": 142,
+            "question": "Co charakteryzuje metody lekkie wytwarzania oprogramowania?",
+            "answers": [
+                "Skupiają się na jednostkach i interakcjach niż procesach i narzędziach, stawiają na jakość produktu końcowego, preferują współpracę z klientem nad negocjację kontraktu i są otwarte na zmiany zamiast ślepo trzymać się planu.",
+                "Skupiają się na procesach i narzędziach, stawiają na obszerną dokumentację, preferują negocjację kontraktu nad współpracę z klientem i ślepo trzymają się planu.",
+                "Nie zwracają uwagi na jednostki i interakcje, nie dbają o jakość produktu końcowego i nie są otwarte na zmiany.",
+                "Są skomplikowane i czasochłonne, zwracają uwagę tylko na procesy i narzędzia i nie są otwarte na zmiany."
+            ],
+            "explanation": "todo",
+            "correctAnswer": 0
+        },
+        {
+            "id": 143,
+            "question": "Co oznacza pojedynczy przyrost oprogramowania w Programowaniu Ekstremalnym?",
+            "answers": [
+                "To niepusty zbiór opowieści użytkownika realizowany w ciągu 2-3 tygodni, który ma charakter wewnętrzny.",
+                "To zbiór opowieści użytkownika realizowany w ciągu 6 miesięcy.",
+                "To zbiór opowieści użytkownika realizowany w ciągu 2-3 tygodni, ale nie ma charakteru wewnętrznego.",
+                " To pusty zbiór opowieści użytkownika realizowany w ciągu 2-3 tygodni."
+            ],
+            "explanation": "todo",
+            "correctAnswer": 0
+        },
+        {
+            "id": 144,
+            "question": "Co oznacza pojedyncze wydanie programu w Programowaniu Ekstremalnym?",
+            "answers": [
+                "To wydanie oprogramowania, które ma wartość użytkową i trafia do użytkownika końcowego.",
+                "To wydanie oprogramowania, które nie ma wartości użytkowej i nie trafia do użytkownika końcowego.",
+                "To wydanie oprogramowania, które trafia do użytkownika końcowego, ale nie ma wartości użytkowej.",
+                "To wydanie oprogramowania, które ma wartość użytkową, ale nie trafia do użytkownika końcowego."
+            ],
+            "explanation": "todo",
+            "correctAnswer": 0
+        },
+        {
+            "id": 145,
+            "question": "Jak zapewnia się wysoką jakość programu tworzonego zgodnie z Programowaniem Ekstremalnym?",
+            "answers": [
+                "Poprzez dbanie o prostotę, unikanie optymalizacji, tworzenie zestawu testów dla każdej jednostki kodu, automatyczne wykonanie testów i refaktoryzację.",
+                "Poprzez skomplikowanie kodu, optymalizację w każdym możliwym momencie, pomijanie testów jednostkowych i ignorowanie refaktoryzacji.",
+                "Poprzez ignorowanie prostoty, unikanie testów jednostkowych, brak automatycznego wykonania testów i pomijanie refaktoryzacji.",
+                " Poprzez pomijanie prostoty, unikanie optymalizacji, brak zestawu testów dla każdej jednostki kodu i brak refaktoryzacji."
+            ],
+            "explanation": "todo",
+            "correctAnswer": 0
+        },
+        {
+            "id": 146,
+            "question": "Jak zapewnia się wysoką jakość programu tworzonego zgodnie z Programowaniem Ekstremalnym?",
+            "answers": [
+                "Program musi przejść wszystkie testy jednostkowe zanim zostanie przekazany do eksploatacji, dla każdego błędu tworzony jest nowy zestaw testów, kod jest często integrowany, a testy akceptacyjne są często wykonywane i publikowane.",
+                "Program nie musi przechodzić testów jednostkowych, dla każdego błędu nie tworzy się nowego zestawu testów, kod jest rzadko integrowany, a testy akceptacyjne są rzadko wykonywane i publikowane.",
+                "Program nie musi przechodzić testów jednostkowych przed przekazaniem do eksploatacji, nowy zestaw testów nie jest tworzony dla każdego błędu, kod jest rzadko integrowany, a testy akceptacyjne są rzadko wykonywane i publikowane.",
+                "Program przechodzi tylko niektóre testy jednostkowe przed przekazaniem do eksploatacji, dla każdego błędu tworzy się nowy zestaw testów, ale kod jest rzadko integrowany, a testy akceptacyjne są rzadko wykonywane i publikowane."
+            ],
+            "explanation": "todo",
+            "correctAnswer": 0
+        },
+        {
+            "id": 147,
+            "question": "Jaka jest rola klienta w Programowaniu Ekstremalnym?",
+            "answers": [
+                "Klient jest częścią zespołu, definiuje wymagania i ustala priorytety.",
+                "Klient jest wyłączony z procesu, a zespół sam określa wymagania i priorytety.",
+                "Klient tylko sporadycznie kontaktuje się z zespołem, a większość wymagań i priorytetów jest ustalana bez jego udziału.",
+                "Klient nie jest częścią zespołu, nie definiuje wymagań ani nie ustala priorytetów."
+            ],
+            "explanation": "todo",
+            "correctAnswer": 0
+        },
+        {
+            "id": 148,
+            "question": "Jakie są zalety Programowania Ekstremalnego?",
+            "answers": [
+                "Lepsza komunikacja w zespole, szybsze dostarczanie wartości dla klienta, większa elastyczność w obliczu zmian, wysoka jakość oprogramowania.",
+                "Gorsza komunikacja w zespole, wolniejsze dostarczanie wartości dla klienta, brak elastyczności w obliczu zmian, niska jakość oprogramowania.",
+                "Brak komunikacji w zespole, dostarczanie wartości dla klienta bez uwzględnienia czasu, brak elastyczności w obliczu zmian, niska jakość oprogramowania.",
+                "Lepsza komunikacja w zespole, ale wolniejsze dostarczanie wartości dla klienta, brak elastyczności w obliczu zmian, niska jakość oprogramowania."
+            ],
+            "explanation": "todo",
+            "correctAnswer": 0
+        },
+        {
+            "id": 149,
+            "question": "Jakie są trudności związane z implementacją Programowania Ekstremalnego?",
+            "answers": [
+                "Wymaga zaangażowania klienta, wymaga dobrze zorganizowanej i doświadczonej grupy programistów, zasoby czasowe muszą być dobrze zarządzane, wymaga ciągłego testowania i refaktoryzacji.",
+                "Nie wymaga zaangażowania klienta, nie wymaga dobrze zorganizowanej i doświadczonej grupy programistów, zasoby czasowe mogą być zarządzane bez przemyślenia, nie wymaga ciągłego testowania i refaktoryzacji.",
+                "Wymaga zaangażowania klienta, ale nie wymaga dobrze zorganizowanej i doświadczonej grupy programistów, zasoby czasowe mogą być zarządzane bez przemyślenia, nie wymaga ciągłego testowania i refaktoryzacji.",
+                "Nie wymaga zaangażowania klienta, ale wymaga dobrze zorganizowanej i doświadczonej grupy programistów, zasoby czasowe muszą być dobrze zarządzane, nie wymaga ciągłego testowania i refaktoryzacji."
+            ],
+            "explanation": "todo",
+            "correctAnswer": 0
+        },
+        {
+            "id": 150,
+            "question": "Czym jest refaktoryzacja?",
+            "answers": [
+                "Refaktoryzacja to proces polegający na zmienianiu struktury kodu źródłowego bez wpływu na jego działanie.",
+                "Refaktoryzacja to proces polegający na zmienianiu działania kodu źródłowego bez wpływu na jego strukturę.",
+                "Refaktoryzacja to proces polegający na zmianianiu wyglądu interfejsu użytkownika bez wpływu na kod źródłowy.",
+                "Refaktoryzacja to proces polegający na dodawaniu nowych funkcji do kodu źródłowego bez zmieniania jego struktury."
+            ],
+            "explanation": "todo",
+            "correctAnswer": 0
+        },
+        {
+            "id": 151,
+            "question": "Czym jest pielęgnacja oprogramowania?",
+            "answers": [
+                "Pielęgnacja oprogramowania to proces modyfikowania programu po jego dostarczeniu i wdrożeniu, w celu poprawy błędów, wydajności lub dostosowania do zmian w środowisku operacyjnym.",
+                "Pielęgnacja oprogramowania to proces dodawania nowych funkcji do programu po jego dostarczeniu i wdrożeniu, bez poprawy błędów lub wydajności.",
+                "Pielęgnacja oprogramowania to proces modyfikacji programu przed jego dostarczeniem i wdrożeniem, w celu poprawy błędów, wydajności lub dostosowania do zmian w środowisku operacyjnym.",
+                "Pielęgnacja oprogramowania to proces tworzenia dokumentacji do programu po jego dostarczeniu i wdrożeniu, bez wpływu na błędy lub wydajność."
+            ],
+            "explanation": "todo",
+            "correctAnswer": 0
+        }
+    ],
+    "metadata": {
+        "id": "6475f35a8e4aa6225ea69f8f",
+        "private": true,
+        "createdAt": "2023-05-30T13:00:10.431Z",
+        "name": "inzynierja"
+    }
+}
